@@ -4,3 +4,7 @@ This is a chemistry application that provides all the info you need. Made for st
 # How To Install
 
 # How To Use
+
+# Dependencies
+You will need to have the following installed in order to run Chem++
+1. Python3.5+
