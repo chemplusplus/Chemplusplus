@@ -1,0 +1,12 @@
+COLORS:
+Background:#373e40
+Error-Background: #fe6073
+Warning-Background: #ffcb77
+Text: #fef9ef
+Black-Text: #121212
+Extra-Color: #17c3b2
+
+FONTS:
+Header: Open Sans 300 Regular
+Body Text: Montserrat 100 Light
+
