@@ -2,6 +2,10 @@
 This is a chemistry application that provides all the info you need. Made for students by students, thi will help you ace your next chemsitry test!
 
 # How To Install
+Linux:
+
+Go to the linux terminal and type:
+git clone https://www.github.com/MarkusFrig/Chemplusplus
 
 # How To Use
 Windows:
