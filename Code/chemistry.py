@@ -7,7 +7,7 @@ It uses the pubhcem json file for the periodic table
 
 Hexes for colours
 
-bg = 227c9d
+bg = 373e40
 
 warnings bg = ffcb77
 
@@ -30,9 +30,15 @@ import string
 
 from PIL import ImageTk, Image
 
+import tkinter.font as font
+
+import threading 
+
 
 
 root = Tk()
+
+root.configure(bg = '#373e40')
 
 root.geometry("1200x800")
 
@@ -51,12 +57,13 @@ def info():
 			info_window.geometry("400x400") 
 			info_window.title(f"Info {i}")
 			info_window.resizable(False, False)
+			info_window.configure(bg = '#373e40')
 			for e in range(len(backend.table[i])):
 				if backend.table[i][e] == '':
 
-					Label(info_window, text = backend.temp2[e]+' = Unknown').place(x = 0, y = 20*e)
+					Label(info_window, text = backend.temp2[e]+' = Unknown', bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
 				else:
-					Label(info_window, text = backend.temp2[e]+' = '+backend.table[i][e]).place(x = 0, y = 20*e)
+					Label(info_window, text = backend.temp2[e]+' = '+backend.table[i][e], bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
 
 			break
 
@@ -79,6 +86,8 @@ def bohr_coords(x, y, w):
 	nx, ny = 300 + x, 300 + -1*y
 	to_return = [nx+w, ny+w, nx-w, ny-w]
 	return to_return 
+
+
 def bohr_elec(n, r, x,canv): #x refers to the place where they will be printed
 	m30 = math.cos(math.radians(30))
 	m45= math.cos(math.radians(45))
@@ -143,6 +152,61 @@ def bohr_elec(n, r, x,canv): #x refers to the place where they will be printed
 		for i in range(n):
 			canv.create_oval(bohr_coords(fpos[i][0], fpos[i][1], 5), fill = 'green')
 
+
+
+def conv_calc():
+	calc_window = Tk()
+	calc_window.geometry('400x200')
+	calc_window.title('Conversion Calculator')
+	calc_window.resizable(False, False)
+	calc_window.configure(bg = '#373e40')
+
+	element_entry = Entry(calc_window, width = 10)
+
+	grams_entry = Entry(calc_window, width = 10)
+
+	mols_entry = Entry(calc_window, width = 10)
+
+	particles_entry = Entry(calc_window, width = 15)
+
+	element_label = Label(calc_window, text = "Element:", bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	grams_label = Label(calc_window, text = "Grams", bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	mols_label = Label(calc_window, text = "Mols", bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	particles_label = Label(calc_window, text = "Particles", bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	enter = Button(calc_window, text = "Enter Values", 
+		command = lambda:backend.calc_units(particles_entry, mols_entry, grams_entry, element_entry),
+		bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	clear = Button(calc_window, text = "Clear Values", command = lambda:backend.clear_values(particles_entry, mols_entry, grams_entry, element_entry),
+			bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+
+	element_entry.place(x = 165, y = 0)
+
+	element_label.place(x = 85, y = 0)
+
+	grams_entry.place(x = 312, y = 50)
+
+	grams_label.place(x = 315, y = 75)
+
+	mols_entry.place(x = 165, y = 50)
+
+	mols_label.place(x = 165, y = 75)
+
+	particles_entry.place(x = 0,y = 50)
+
+	particles_label.place(x = 0, y = 75)
+
+	enter.place(x = 152, y = 150)
+
+	clear.place(x = 282, y = 150)
+
+
+
+
 def bohr():
 
 	query = _Bohr_Entry.get()
@@ -153,8 +217,9 @@ def bohr():
 			bohr_window.title(f"Bohr Diagram {i}")
 			bohr_window.resizable(False, False)
 
-			bohr_canvas = Canvas(bohr_window, width = 600, height = 600)
-			bohr_canvas.place(x = 0, y = 0)
+
+			bohr_canvas = Canvas(bohr_window, width = 600, height = 600, bg = '#373e40')
+			bohr_canvas.place(x = -1, y = -1)
 
 			for e in backend.table:
 				if e == query:
@@ -182,26 +247,62 @@ def bohr():
 
 			break
 
+def donothing():
+	pass
+_Menubar = Menu(root, bg = '#121212', fg = '#ffffff', activeborderwidth = 0)
+_File_Menu = Menu(_Menubar, tearoff=-1, bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+_File_Menu.add_command(label="New", command=donothing)
+_File_Menu.add_command(label="Open", command=donothing)
+_File_Menu.add_command(label="Save", command=donothing)
+_File_Menu.add_command(label="Save as...", command=donothing)
+_File_Menu.add_command(label="Close", command=donothing)
 
+_File_Menu.add_separator()
 
+_File_Menu.add_command(label="Exit", command=root.quit)
+_Menubar.add_cascade(label="File", menu=_File_Menu)
+_Edit_Menu = Menu(_Menubar, tearoff=0, bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+_Edit_Menu.add_command(label="Undo", command=donothing)
 
+_Edit_Menu.add_separator()
 
-_Info_Entry = Entry(root)
+_Edit_Menu.add_command(label="Cut", command=donothing)
+_Edit_Menu.add_command(label="Copy", command=donothing)
+_Edit_Menu.add_command(label="Paste", command=donothing)
+_Edit_Menu.add_command(label="Delete", command=donothing)
+_Edit_Menu.add_command(label="Select All", command=donothing)
 
-_Info_Enter = Button(text = 'Get Info', command = info)
+_Menubar.add_cascade(label="Edit", menu=_Edit_Menu)
+_Help_Menu = Menu(_Menubar, tearoff=0, bg = '#373e40', fg = '#ffffff', font = ("Montserrat", 10))
+_Help_Menu.add_command(label="Help Index", command=donothing)
+_Help_Menu.add_command(label="About...", command=donothing)
+_Menubar.add_cascade(label="Help", menu=_Help_Menu)
+
+root.config(menu=_Menubar)
+
+_Info_Entry = Entry(root,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10))
+
+_Info_Entry.insert(0, "Element Name")
+
+_Info_Enter = Button(text = 'Get Info', command = info, font = ('Montserrat', 10))
 
 _Info_Enter.place(x = 0, y = 25)
 
 _Info_Entry.place(x = 0, y = 0)
 	
-_Bohr_Entry = Entry(root)
+_Bohr_Entry = Entry(root,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10))
 
-_Bohr_Enter = Button(root, text = "Get Diagram", command = bohr)
+_Bohr_Entry.insert(0, "Element Name")
+
+_Bohr_Enter = Button(root, text = "Get Diagram", command = bohr, font = ("Montserrat", 10))
 
 _Bohr_Entry.place(x = 200, y = 0)
 
 _Bohr_Enter.place(x = 200, y = 25)
 
+_Conversion_Calc_Button = Button(root, text = 'Convert Units', command = conv_calc, font = ("Montserrat", 10))
+
+_Conversion_Calc_Button.place(x = 500, y = 0)
 
 _Names = []
 
@@ -211,7 +312,7 @@ for i in backend.table:
 _Elements = dict()
 def ez_return(x):
 	for i in backend.table:
-		if i ==x:
+		if i == x:
 			return i
 
 
