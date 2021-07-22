@@ -7,8 +7,9 @@ This is a chemistry application that provides all the info you need. Made for st
 Linux:
 
 Go to the linux terminal and type:
+```sh
 git clone https://www.github.com/MarkusFrig/Chemplusplus
-
+```
 # How To Use
 Windows:
 
