@@ -1,4 +1,5 @@
 # Chem++
+![Chem++ Logo](https://github.com/MakusFrig/Chemplusplus/blob/main/Chem%2B%2B%20Logo/Chem%2B%2B_Secondary.png?raw=true)
 This is a chemistry application that provides all the info you need. Made for students by students, thi will help you ace your next chemsitry test!
 
 # How To Install
