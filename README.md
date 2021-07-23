@@ -3,6 +3,9 @@
 
 This is a chemistry application that provides all the info you need. Made for students by students, thi will help you ace your next chemsitry test!
 
+# Notice
+The information of the elements comes from the National Library of Medicine and can be found here : https://pubchem.ncbi.nlm.nih.gov/periodic-table/
+
 # How To Install
 Linux:
 
