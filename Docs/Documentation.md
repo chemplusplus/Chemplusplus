@@ -1,4 +1,5 @@
 # Documentation
+![Chem++ Logo](https://github.com/MakusFrig/Chemplusplus/blob/main/Chem%2B%2B%20Logo/Chem%2B%2B_Secondary.png?raw=true)
 
 ## Info
 
