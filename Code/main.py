@@ -1,9 +1,9 @@
 '''
 +-----------------------------------------------------------+
-|															                              |
-|	This is my chemistry aid for high school students   	    |
-|	This was created by Markus Frigaard in 2021  		 	        |
-|														                              	|
+|							    |
+|	This is my chemistry aid for high school students   |
+|	This was created by Markus Frigaard in 2021  	    |
+|							    |
 +-----------------------------------------------------------+
 
 
@@ -31,6 +31,8 @@ import string
 import search
 import menubar
 import backend
+import balence
+import structure
 import threading
 import converter
 from tkinter import *
@@ -60,7 +62,7 @@ elif sys.platform == 'linux':
     root.call('wm', 'iconphoto', root._w, logo)
 
 
-
+balence.create_balencer(root)
 
 converter.create_converter(root)
 
@@ -71,6 +73,8 @@ info.create_info(root)
 bohr.create_bohr(root)
 
 search.create_search(root)
+
+structure.create_struct(root)
 
 
 root.mainloop()
