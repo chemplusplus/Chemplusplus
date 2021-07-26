@@ -5,7 +5,17 @@ in order to give answers in the application
 
 from tkinter import *
 
-import requests
+import sys
+
+import os
+
+try:
+	import requests
+except:
+	if sys.platform == "linux":
+		os.system('pip3 install requests')
+	elif sys.platform == 'windows':
+		os.system('pip install requests')
 
 from bs4 import BeautifulSoup
 
