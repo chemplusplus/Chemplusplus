@@ -24,7 +24,7 @@ table = dict()
 if sys.platform == "linux":
 	temp2 = json.load(open("assets/ptable.json", 'r'))['Table']['Columns']['Column']
 
-elif sys.platform == 'win32' or sys.platform == 'win64:
+elif sys.platform == 'win32' or sys.platform == 'win64':
 	temp2 = json.load(open("assets\\ptable.json", 'r'))['Table']["Columns"]["Column"]
 
 print(temp2, type(temp2))
