@@ -1,9 +1,9 @@
 '''
 +-----------------------------------------------------------+
-|							    |
-|	This is my chemistry aid for high school students   |
-|	This was created by Markus Frigaard in 2021  	    |
-|							    |
+|															|
+|	This is my chemistry aid for high school students   	|
+|	This was created by Markus Frigaard in 2021  		 	|
+|															|
 +-----------------------------------------------------------+
 
 
@@ -23,6 +23,7 @@ Black Text  = 121212
 Extra = 17c3b2
 
 '''
+import os
 import sys
 import bohr
 import info
@@ -37,8 +38,18 @@ import threading
 import converter
 from tkinter import *
 import tkinter.font as font
-from PIL import ImageTk, Image
 
+try:
+	from PIL import ImageTk, Image
+except:
+	if sys.platform == 'linux':
+		os.system('pip3 install PILLOW')
+		os.system('pip3 install pillow')
+	elif sys.platform == 'win32' or sys.platform == 'win64':
+		os.system('pip install PILLOW')
+		os.system('pip install pillow')
+
+from PIL import ImageTk, Image
 
 
 root = Tk()
