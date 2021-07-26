@@ -1,6 +1,5 @@
 '''
-This file is for getting responses from pubchem rest pub
-I wanted to expand on this and create an api, but there was already one available
+This file is for getting responses from pubchem rest pub api
 '''
 import json
 
@@ -42,6 +41,10 @@ def get_2d_photo(cid):
 	if sys.platform == 'linux':
 		if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != 'photos':
 			os.system(f'mv {cid}.gif photos')
+
+	elif sys.platform == 'win32' or sys.platform == 'win64':
+		if os.getcwd().split("\\")[len(os.getcwd().split('\\'))-1] != 'photos':
+			os.system(f'move {cid}.gif photos')
 
 def get_cid(cname):
 
