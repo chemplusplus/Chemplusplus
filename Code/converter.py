@@ -57,6 +57,11 @@ def conv_calc(en):
 
 	clear.place(x = 282, y = 150)
 
+def clear_entry(event):
+	global _Conversion_Input
+	_Conversion_Input.delete(0, 'end')
+	return None
+
 def create_converter(t):
 	global _Conversion_Frame, _Conversion_Input, _Conversion_Calc_Button
 
@@ -67,6 +72,8 @@ def create_converter(t):
 	_Conversion_Input = Entry(_Conversion_Frame, bg = '#ffffff', fg = '#121212', width = 19 ,font = ("Montserrat", 10))
 
 	_Conversion_Input.insert(0, "Element Name")
+
+	_Conversion_Input.bind("<Button-1>", clear_entry)
 
 	_Conversion_Input.place(x = 7, y = 0)
 
