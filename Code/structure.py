@@ -12,16 +12,24 @@ import pubchem
 
 import os
 
+def clear_entry(event):
+	global _Struct_Entry
+	_Struct_Entry.delete(0, 'end')
+	return None
+
+
 def create_struct(t):
 	global _Struct_Frame, _Struct_Entry, _Struct_Enter
 
 	_Struct_Frame = LabelFrame(t, text = 'Compound Diagram', width = 200, height = 80, font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
 
-	_Struct_Frame.place(x = 210, y = 100)
+	_Struct_Frame.place(x = 410, y = 100)
 
 	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 19)
 
 	_Struct_Entry.insert(0, "Compound Name")
+
+	_Struct_Entry.bind("<Button-1>", clear_entry)
 
 	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(_Struct_Entry.get()), font = ('Montserrat', 10), width = 17)
 
