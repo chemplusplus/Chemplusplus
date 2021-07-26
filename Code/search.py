@@ -14,8 +14,17 @@ try:
 except:
 	if sys.platform == "linux":
 		os.system('pip3 install requests')
-	elif sys.platform == 'windows':
+	elif sys.platform == 'win32' or sys.platform == 'win64':
 		os.system('pip install requests')
+import requests
+
+try:
+	from bs4 import BeautifulSoup
+except:
+	if sys.platform == 'linux':
+		os.system('pip3 install bs4')
+	elif sys.platform == 'win32' or sys.platform == 'win64':
+		os.system('pip install bs4')
 
 from bs4 import BeautifulSoup
 
