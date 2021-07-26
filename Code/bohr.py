@@ -123,6 +123,11 @@ def bohr():
 
 			break
 
+def clear_entry(event):
+	global _Bohr_Entry
+	_Bohr_Entry.delete(0, 'end')
+	return None
+			
 def create_bohr(t):
 	global _Diagram_Frame, _Bohr_Entry, _Bohr_Enter
 
@@ -133,6 +138,8 @@ def create_bohr(t):
 	_Bohr_Entry = Entry(_Diagram_Frame,bg = '#ffffff', fg = '#121212', width = 19 ,font = ("Montserrat", 10))
 
 	_Bohr_Entry.insert(0, "Element Name")
+	
+	_Bohr_Entry.bind("<Button-1>", clear_entry)
 
 	_Bohr_Enter = Button(_Diagram_Frame, text = "Get Diagram", width = 17,command = bohr, font = ("Montserrat", 10))
 
