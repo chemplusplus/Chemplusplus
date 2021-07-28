@@ -22,19 +22,19 @@ import json
 table = dict()
 
 if sys.platform == "linux":
-	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']['Columns']['Column']
+	temp2 = json.load(open("assets/ptable.json", 'r'))['Table']['Columns']['Column']
 
 elif sys.platform == 'win32':
-	temp2 = json.load(open("Assets\\ptable.json", 'r'))['Table']["Columns"]["Column"]
+	temp2 = json.load(open("assets\\ptable.json", 'r'))['Table']["Columns"]["Column"]
 
 print(temp2, type(temp2))
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
 if sys.platform == 'linux':
-	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
+	temp = json.load(open("assets/ptable.json", "r"))["Table"]["Row"]
 
 elif sys.platform == 'win32':
-	temp = json.load(open("Assets\\ptable.json", "r"))["Table"]["Row"]
+	temp = json.load(open("assets\\ptable.json", "r"))["Table"]["Row"]
 
 	
 print(type(temp[0]))
