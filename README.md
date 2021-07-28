@@ -94,6 +94,10 @@ When you call the unit conversion button a new window will pop up. The element y
 
 The search bar eliminates the need for the user to open a browser. Whatever is entered into the input will be sent to the chemistry stack exchange. It will take the top 3 results and display them in a new window. There are forward and backward buttons which can be pressed in the top left of this new window, these allow you to shift between the answers. At the time of writing this there are still problems with the formatting of the questions.
 
+##Equation Balencer
+
+This feature is soon to come to chem++. It will balence all equations provided they have been inputted correctly
+
 ## Contact
 
 If you have any questions please ask them in our discord server
