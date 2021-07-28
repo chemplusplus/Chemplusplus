@@ -31,42 +31,46 @@ def create_struct(t):
 
 	_Struct_Entry.bind("<Button-1>", clear_entry)
 
-	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(_Struct_Entry.get()), font = ('Montserrat', 10), width = 17)
+	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = ('Montserrat', 10), width = 17)
 
 	_Struct_Enter.place(x = 5, y = 25)
 
 	_Struct_Entry.place(x = 7, y = 0)
 
-def create_window(x):
-	 _struct_Window = Tk()
+def create_window():
+	global _Struct_Entry
 
-	 _struct_Window.geometry('500x500')
+	x = _Struct_Entry.get()
 
-	 _struct_Window.title(f'Diagram of {x}')
+	_struct_Window = Tk()
 
-	 _struct_Window.resizable(False, False)
+	_struct_Window.geometry('500x500')
 
-	 cid  = pubchem.get_cid(x)
+	_struct_Window.title(f'Diagram of {x}')
 
-	 global my_image, _diagram
+	_struct_Window.resizable(False, False)
+
+	cid = pubchem.get_cid(x)
+
+	global my_image, _diagram
 
 
-	 pubchem.get_2d_photo(cid)
+	pubchem.get_2d_photo(cid)
 
 
-	 if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != 'photos':
+	if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != 'photos':
 	 	os.chdir('photos')
 
 
 
-	 if f'{cid}.gif' not in os.listdir():
+	if f'{cid}.gif' not in os.listdir():
 	 	time.sleep(5)
 
 
-	 my_image = PhotoImage(master = _struct_Window, file = f'{cid}.gif')
+	my_image = PhotoImage(master = _struct_Window, file = f'{cid}.gif')
 
-	 _diagram = Label(master =_struct_Window, image = my_image)
+	_diagram = Label(master =_struct_Window, image = my_image)
 
-	 _diagram.pack()
+	_diagram.pack()
 
 
