@@ -39,6 +39,11 @@ def info_button(x):
 
 			break
 
+def clear_entry(event):
+	global _Info_Entry
+	_Info_Entry.delete(0, 'end')
+	return None
+
 
 def create_info(t):
 
@@ -52,6 +57,8 @@ def create_info(t):
 	_Info_Entry = Entry(_Info_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 19)
 
 	_Info_Entry.insert(0, "Element Name")
+
+	_Info_Entry.bind("<Button-1>", clear_entry)
 
 	_Info_Enter = Button(_Info_Frame, text = 'Get Info', command = info, font = ('Montserrat', 10), width = 17)
 
