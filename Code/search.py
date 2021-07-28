@@ -14,17 +14,8 @@ try:
 except:
 	if sys.platform == "linux":
 		os.system('pip3 install requests')
-	elif sys.platform == 'win32' or sys.platform == 'win64':
+	elif sys.platform == 'windows':
 		os.system('pip install requests')
-import requests
-
-try:
-	from bs4 import BeautifulSoup
-except:
-	if sys.platform == 'linux':
-		os.system('pip3 install bs4')
-	elif sys.platform == 'win32' or sys.platform == 'win64':
-		os.system('pip install bs4')
 
 from bs4 import BeautifulSoup
 
@@ -127,6 +118,8 @@ def search_gui(res):
 	_Backward.place(x = 0, y = 0)
 
 
+
+
 def switch(res, txt, index):
 	global INDEX
 
@@ -141,10 +134,14 @@ def switch(res, txt, index):
 
 	txt.delete('1.0', END)
 	txt.insert(END, res[index])
+def clear_entry(event):
+	global _Search_Entry
+	_Search_Entry.delete(0, 'end')
+	return None
 
 	
 def create_search(t):
-	global _Search_Frame, _Search_Entry, _Search_Enter
+	global _Search_Frame, _Search_Entry, _Search_Enter, _Search_Thread
 
 	_Search_Frame = LabelFrame(t, text = 'Search', width = 400, height = 80, font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
 
@@ -154,7 +151,10 @@ def create_search(t):
 
 	_Search_Entry.insert(0, "Search")
 
+	_Search_Entry.bind("<Button-1>", clear_entry)
+
 	_Search_Entry.place(x = 7, y = 0)
+
 
 	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search_gui(search(_Search_Entry.get())),
 		font = ("Montserrat", 10), width = 40)
