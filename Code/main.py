@@ -30,7 +30,6 @@ import info
 import math
 import string
 import search
-import menubar
 import backend
 import balence
 import structure
@@ -76,8 +75,6 @@ elif sys.platform == 'linux':
 balence.create_balencer(root)
 
 converter.create_converter(root)
-
-menubar.create_menu(root)
 
 info.create_info(root)
 
