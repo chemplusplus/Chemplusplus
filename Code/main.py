@@ -62,13 +62,13 @@ root.title("Chem++")
 root.resizable(False, False)
 
 if sys.platform == "windows":
-	root.call('wm', 'iconphoto', root._w, img = 'assets\\the_icon.ico')
+	root.call('wm', 'iconphoto', root._w, img = 'Assets\\the_icon.ico')
 
 elif sys.platform == 'linux':
 	#normally linux should allow .xbm 
 	#files as the icon, but it didn't work
 	#on linux mint so just gonna use gif
-    logo = PhotoImage(file='assets/icon.gif')
+    logo = PhotoImage(file='Assets/icon.gif')
     root.call('wm', 'iconphoto', root._w, logo)
 
 
