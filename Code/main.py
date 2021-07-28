@@ -61,8 +61,8 @@ root.title("Chem++")
 
 root.resizable(False, False)
 
-if sys.platform == "windows":
-	root.call('wm', 'iconphoto', root._w, img = 'Assets\\the_icon.ico')
+if sys.platform == "win32":
+	root.iconbitmap("Assets/the_icon.ico")
 
 elif sys.platform == 'linux':
 	#normally linux should allow .xbm 
