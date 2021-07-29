@@ -37,12 +37,6 @@ Open your terminal and navigate to the folder where you want to install Chem++. 
 ```sh
 git clone https://www.github.com/MarkusFrig/Chemplusplus
 ```
-# How To Use
-Windows:
-
-Linux:
-On Linux you will need to navigate to the start.sh file in Chemplusplus/Code/, this will run the python program that will start the GUI 
-
 # Dependencies
 You will need to have the following installed in order to run Chem++
 1. [Python 3.5+](https://www.python.org/)
