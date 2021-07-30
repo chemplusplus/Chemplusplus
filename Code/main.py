@@ -32,9 +32,11 @@ import string
 import search
 import backend
 import balence
+import notation
 import structure
 import threading
 import converter
+import significant
 from tkinter import *
 import tkinter.font as font
 
@@ -84,5 +86,8 @@ search.create_search(root)
 
 structure.create_struct(root)
 
+significant.create_sig(root)
+
+notation.create_Notation(root)
 
 root.mainloop()
