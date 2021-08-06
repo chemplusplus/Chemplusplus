@@ -26,13 +26,18 @@ def get_sig():
 
 	if len(string_version.split(".")) == 1:
 		if len(string_version) <= places:
+
 			_Sig_Entry.insert(0, string_version)
 
 		elif len(string_version) > places:
 
 			zeros = len(string_version) - places
 
-			_Sig_Entry.insert(0, string_version[:places] + "0"*zeros)
+			
+			if int(string_version[places]) < 5:
+				_Sig_Entry.insert(0, string_version[:places] + "0"*zeros)
+			else:
+				_Sig_Entry.insert(0, string_version[:places-1] + str(int(string_version[places-1])+1) + "0"*zeros)
 	elif len(string_version.split(".")) == 2:
 		string_version = string_version.split(".")
 
@@ -45,13 +50,25 @@ def get_sig():
 
 			elif len(string_version[1]) > places:
 
-				_Sig_Entry.insert(0, string_version[0]+"."+string_version[1][:places])
+				if int(string_version[1][places]) < 5:
+
+					_Sig_Entry.insert(0, string_version[0]+"."+string_version[1][:places])
+
+				else:
+
+					_Sig_Entry.insert(0, string_version[0]+"."+string_version[1][:places-1]+str(int(string_version[1][places-1])+1))
 
 		elif len(string_version[0]) > places:
 
 			zeros = len(string_version[0]) - places
 
-			_Sig_Entry.insert(0, string_version[0][:places]+ "0"*zeros)
+			if int(string_version[0][places]) < 5:
+
+				_Sig_Entry.insert(0, string_version[0][:places]+ "0"*zeros)
+
+			else:
+
+				_Sig_Entry.insert(0, string_version[0][:places-1]+str(int(string_version[0][places-1])+1) +"0"*zeros)
 
 
 
