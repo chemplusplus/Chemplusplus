@@ -1,4 +1,5 @@
 from tkinter import *
+import backend
 
 def clear_first(event):
 	global _Sig_Entry
@@ -18,7 +19,9 @@ def get_sig():
 		places = int(_Places_Entry.get())
 
 	except:
+		backend.invalid()
 		return
+
 	string_version = _Sig_Entry.get()
 
 	_Sig_Entry.delete(0, 'end')

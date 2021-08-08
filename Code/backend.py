@@ -8,6 +8,8 @@ import re
 
 import sys
 
+import tkinter.messagebox
+
 def add_space(s):
 	temp = re.sub('([A-Z])', r' \1', s)
 				
@@ -142,4 +144,7 @@ def clear_values(pe, me, ge, e):
 	pe.delete(0, len(pe.get()))
 	me.delete(0, len(me.get()))
 	ge.delete(0, len(ge.get()))
-	e.delete(0, len(e.get()))
+	#e.delete(0, len(e.get()))
+
+def invalid():
+	tkinter.messagebox.showerror(title='Error',message='Invalid Entry')

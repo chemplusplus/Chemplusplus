@@ -84,44 +84,46 @@ def bohr_elec(n, r, x,canv): #x refers to the place where they will be printed
 def bohr():
 
 	query = _Bohr_Entry.get()
-	for i in backend.table:
-		if i == query:
-			bohr_window = Tk()
-			bohr_window.geometry("600x600")
-			bohr_window.title(f"Bohr Diagram {i}")
-			bohr_window.resizable(False, False)
+	if query in backend.table:
+		for i in backend.table:
+			if i == query:
+				bohr_window = Tk()
+				bohr_window.geometry("600x600")
+				bohr_window.title(f"Bohr Diagram {i}")
+				bohr_window.resizable(False, False)
 
 
-			bohr_canvas = Canvas(bohr_window, width = 600, height = 600, bg = '#373e40')
-			bohr_canvas.place(x = -1, y = -1)
+				bohr_canvas = Canvas(bohr_window, width = 600, height = 600, bg = '#373e40')
+				bohr_canvas.place(x = -1, y = -1)
 
-			for e in backend.table:
-				if e == query:
-					electrons = backend.config(backend.table[e][1])
+				for e in backend.table:
+					if e == query:
+						electrons = backend.config(backend.table[e][1])
 
-			bohr_info = Label(bohr_window, text = f'Electrons = {backend.table[query][0]}\nCharge = {backend.table[query][10]}',
-				font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
-			bohr_info.place(x = 5, y = 5)
+				bohr_info = Label(bohr_window, text = f'Electrons = {backend.table[query][0]}\nCharge = {backend.table[query][10]}',
+					font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
+				bohr_info.place(x = 5, y = 5)
 
-			print(electrons.name, electrons.ec, electrons.br)
+				print(electrons.name, electrons.ec, electrons.br)
 
-			name_label = Label(bohr_window, bg = 'red',text = f'{backend.table[i][1]}')
+				name_label = Label(bohr_window, bg = 'red',text = f'{backend.table[i][1]}')
 
-			name_label.place(x = 290, y = 290)
+				name_label.place(x = 290, y = 290)
 
-			first_circle = bohr_canvas.create_oval(bohr_coords(0,0,25),  fill = 'red')
+				first_circle = bohr_canvas.create_oval(bohr_coords(0,0,25),  fill = 'red')
 
-			_Shell = dict()
+				_Shell = dict()
 
-			_Electrons = electrons.ec
+				_Electrons = electrons.ec
 
-			for e in range(1, electrons.br+1):
-				_Shell[e] = bohr_canvas.create_oval(bohr_coords(0,0,25*(e+1)))
+				for e in range(1, electrons.br+1):
+					_Shell[e] = bohr_canvas.create_oval(bohr_coords(0,0,25*(e+1)))
 
-			for e in _Electrons:
-				bohr_elec(int(e[2:]), int(e[0]), e[1], bohr_canvas)
-
-			break
+				for e in _Electrons:
+					bohr_elec(int(e[2:]), int(e[0]), e[1], bohr_canvas)
+	else:
+		backend.invalid()
+				
 
 def clear_entry(event):
 	global _Bohr_Entry

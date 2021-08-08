@@ -31,12 +31,13 @@ import math
 import string
 import search
 import backend
-import balence
+#import balence
 import notation
 import structure
 import threading
 import converter
 import significant
+import periodic
 from tkinter import *
 import tkinter.font as font
 
@@ -74,7 +75,7 @@ elif sys.platform == 'linux':
     root.call('wm', 'iconphoto', root._w, logo)
 
 
-balence.create_balencer(root)
+#balence.create_balencer(root)
 
 converter.create_converter(root)
 
@@ -89,5 +90,7 @@ structure.create_struct(root)
 significant.create_sig(root)
 
 notation.create_Notation(root)
+
+periodic.create_periodic(root)
 
 root.mainloop()
