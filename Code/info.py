@@ -9,21 +9,23 @@ from tkinter import *
 def info():
 
 	query = _Info_Entry.get()
-	for i in backend.table:
-		if i == query:
-			info_window = Tk()
-			info_window.geometry("400x400") 
-			info_window.title(f"Info {i}")
-			info_window.resizable(False, False)
-			info_window.configure(bg = '#373e40')
-			for e in range(len(backend.table[i])):
-				if backend.table[i][e] == '':
+	if(query in backend.table):
+		for i in backend.table:
+			if i == query:
+				info_window = Tk()
+				info_window.geometry("400x400") 
+				info_window.title(f"Info {i}")
+				info_window.resizable(False, False)
+				info_window.configure(bg = '#373e40')
+				for e in range(len(backend.table[i])):
+					if backend.table[i][e] == '':
 
-					Label(info_window, text = backend.temp2[e]+' = Unknown', bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
-				else:
-					Label(info_window, text = backend.temp2[e]+' = '+backend.table[i][e], bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
+						Label(info_window, text = backend.temp2[e]+' = Unknown', bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
+					else:
+						Label(info_window, text = backend.temp2[e]+' = '+backend.table[i][e], bg = '#373e40', fg = '#ffffff').place(x = 0, y = 20*e)
+	else:
+		backend.invalid()
 
-			break
 
 def info_button(x):
 

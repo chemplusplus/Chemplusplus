@@ -1,4 +1,5 @@
 from tkinter import *
+import backend
 
 
 def clear_entry(event):
@@ -14,11 +15,12 @@ def get_Notation():
 		string_version = _Notation_Entry.get()
 
 	except:
-
-		return 
+		backend.invalid()
+		return
 
 	if (number < 10 and number > 0) or number == 0:
-		return 
+		backend.invalid()
+		return
 
 	exponent = 0
 

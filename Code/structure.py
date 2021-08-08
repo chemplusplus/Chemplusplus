@@ -38,9 +38,16 @@ def create_struct(t):
 	_Struct_Entry.place(x = 7, y = 0)
 
 def create_window():
+
 	global _Struct_Entry
 
 	x = _Struct_Entry.get()
+
+	try:
+		cid = pubchem.get_cid(x)
+	except:
+		backend.invalid()
+		return
 
 	_struct_Window = Tk()
 
@@ -49,9 +56,7 @@ def create_window():
 	_struct_Window.title(f'Diagram of {x}')
 
 	_struct_Window.resizable(False, False)
-
-	cid = pubchem.get_cid(x)
-
+	
 	global my_image, _diagram
 
 
