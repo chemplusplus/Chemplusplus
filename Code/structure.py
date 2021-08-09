@@ -4,6 +4,8 @@ This is the structure grabber file
 
 from tkinter import *
 
+from tkinter import messagebox
+
 import time
 
 import backend
@@ -38,25 +40,36 @@ def create_struct(t):
 	_Struct_Entry.place(x = 7, y = 0)
 
 def create_window():
-
 	global _Struct_Entry
 
 	x = _Struct_Entry.get()
 
+	
+
 	try:
 		cid = pubchem.get_cid(x)
+
 	except:
-		backend.invalid()
+		_Struct_Entry.delete(0, END)
+		
+		_Struct_Error = Tk()
+
+		_Struct_Error.resizable(False, False)
+
+		_Struct_Error.title("Error")
+
+		_Struct_Error.geometry("300x100")
+
+		_Struct_Error.config(bg = '#373e40')
+
+		Error_Message = "We could not find the\n compound you were looking for,\n try spelling out the \nfull name"
+
+		_Error_Label = Label(master = _Struct_Error, text = Error_Message, bg = "#373e40", fg = "#ffffff",font = ("Montserrat", 10))
+
+		_Error_Label.place(x= 50, y =0)
+
 		return
 
-	_struct_Window = Tk()
-
-	_struct_Window.geometry('500x500')
-
-	_struct_Window.title(f'Diagram of {x}')
-
-	_struct_Window.resizable(False, False)
-	
 	global my_image, _diagram
 
 
@@ -71,11 +84,21 @@ def create_window():
 	if f'{cid}.gif' not in os.listdir():
 	 	time.sleep(5)
 
+	_struct_Window = Tk()
+
+	_struct_Window.geometry('500x500')
+
+	_struct_Window.title(f'Diagram of {x}')
+
+	_struct_Window.resizable(False, False)
+
 
 	my_image = PhotoImage(master = _struct_Window, file = f'{cid}.gif')
 
 	_diagram = Label(master =_struct_Window, image = my_image)
 
 	_diagram.pack()
+
+
 
 
