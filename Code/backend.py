@@ -46,7 +46,7 @@ print(type(temp[0]))
 for i in temp:
 	table[i['Cell'][2]] = i['Cell']
 	ELECTRON_CONFIG[i['Cell'][1]] = i['Cell'][5]
-	SYMBOLS.append(i)
+	SYMBOLS.append(table[i['Cell'][1]])
 
 class ec:
 	def __init__(self, ec):
