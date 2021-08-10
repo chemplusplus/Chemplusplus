@@ -31,7 +31,7 @@ import math
 import string
 import search
 import backend
-#import balence
+import balence
 import notation
 import structure
 import threading
