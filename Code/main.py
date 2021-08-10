@@ -34,6 +34,7 @@ import backend
 import balence
 import notation
 import structure
+import limiting
 import threading
 import converter
 import significant
@@ -74,8 +75,9 @@ elif sys.platform == 'linux':
     logo = PhotoImage(file='Assets/icon.gif')
     root.call('wm', 'iconphoto', root._w, logo)
 
-
-#balence.create_balencer(root)
+limiting.create_limiting(root)
+	
+balence.create_balencer(root)
 
 converter.create_converter(root)
 
