@@ -13,8 +13,7 @@ import os
 
 import sys
 
-def get_info(x):
-	print(type(x), len(x))
+
 
 def dict_depth(dic, level = 1):
        
@@ -22,7 +21,7 @@ def dict_depth(dic, level = 1):
     counter = 0
     for i in str_dic:
         if i == "{":
-            counter += 1
+            counter += 1print()
         if i == "sval":
         	print()
     return(counter)
@@ -59,13 +58,10 @@ def get_cid(cname):
 
 	the_json = json.loads(urllib.request.urlopen(url).read().decode())
 
-	get_info(the_json)
-
 	the_json = the_json["PC_Compounds"][0]['id']['id']['cid']
 
 	
 
-	print(the_json)
 
 	return the_json
 
@@ -92,6 +88,7 @@ def get_compound(cname):
 		if i['urn']['label'] == "SMILES":
 			for_return.append(i['value']['sval'])
 
-	print(for_return)
+
+
 
 
