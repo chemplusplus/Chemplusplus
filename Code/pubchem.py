@@ -21,7 +21,7 @@ def dict_depth(dic, level = 1):
     counter = 0
     for i in str_dic:
         if i == "{":
-            counter += 1print()
+            counter += 1
         if i == "sval":
         	print()
     return(counter)
