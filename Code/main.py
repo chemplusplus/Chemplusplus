@@ -93,4 +93,18 @@ notation.create_Notation(root)
 
 periodic.create_periodic(root)
 
+
+#this nexte piece of code is copied
+#we need to know whether or not its connected because it takes
+#away the features of the comopound structures and such
+import urllib.request
+def connect(host='http://google.com'):
+    try:
+        urllib.request.urlopen(host) #Python 3.x
+        return True
+    except:
+        return False
+# test
+print( 'connected' if connect() else 'no internet!' )
+
 root.mainloop()
