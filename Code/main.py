@@ -28,6 +28,7 @@ import sys
 import bohr
 import info
 import math
+import setup
 import string
 import search
 import backend
