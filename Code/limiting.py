@@ -95,16 +95,12 @@ def create_limiting(t):
 	_Limiting_Frame.place(x = 10, y = 270)
 
 	_Equation_Entry = Entry(_Limiting_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 30)
-	
-	_Equation_Entry['state'] = 'disabled'
 
 	_Equation_Entry.insert(0, "Coming Soon")
 
 	_Equation_Entry.bind("<Button-1>", clear_entry_equation)
 
 	_Mass_Entry = Entry(_Limiting_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 10)
-	
-	_Mass_Entry['state'] = 'disabled'
 
 	_Mass_Entry.bind("<Button-1>", clear_entry_mass)
 
