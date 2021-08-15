@@ -32,7 +32,7 @@ def render_table():
                 except:
                     pass
 
-                self.image = Image.open("/photos/Periodic.png")
+                self.image = Image.open("photos/Periodic.png")
             elif sys.platform == "win32":
                 try:
                     os.chdir(f"{backend.STARTING_DIR}")
