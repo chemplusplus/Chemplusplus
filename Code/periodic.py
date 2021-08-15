@@ -4,11 +4,11 @@ import backend
 
 def create_periodic(t):
     global periodic_button, periodic_label
-    periodic_label = LabelFrame(t, text="View Periodic Table", width=130, height=60, font=(
+    periodic_label = LabelFrame(t, text="View Periodic Table", width=200, height=80, font=(
         "Montserrat", 10), bg="#373e40", fg="#ffffff")
-    periodic_label.place(x=900,y=100)
-    periodic_button = Button(periodic_label,text="View",command=lambda:render_table(),font = ("Montserrat", 10), width = 10)
-    periodic_button.place(x=18.5,y=5)
+    periodic_label.place(x=410,y=270)
+    periodic_button = Button(periodic_label,text="View",command=lambda:render_table(),font = ("Montserrat", 10), width = 15)
+    periodic_button.place(x=18.5,y=15)
 
 def render_table():
     root = Toplevel()
