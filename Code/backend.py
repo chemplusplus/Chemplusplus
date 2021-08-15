@@ -6,6 +6,8 @@ import string
 
 import re
 
+import os
+
 import sys
 
 import tkinter.messagebox
@@ -19,6 +21,8 @@ ELECTRON_CONFIG = dict()
 LEVELS = {'1':1, '2':8, '3':8, '4':16, '5':16, '6':16}
 S, P, D= 2, 6, 10
 LETTERS = {'s':2, 'p':6, 'd':10}
+
+STARTING_DIR = os.getcwd()
 
 import json 
 table = dict()
