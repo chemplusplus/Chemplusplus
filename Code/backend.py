@@ -33,7 +33,7 @@ if sys.platform == "linux":
 elif sys.platform == 'win32':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']["Columns"]["Column"]
 
-print(temp2, type(temp2))
+
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
 if sys.platform == 'linux':
@@ -46,7 +46,7 @@ SYMBOLS = []
 	
 for i in temp3:
 	SYMBOLS.append(i)
-print(type(temp[0]))
+
 for i in temp:
 	table[i['Cell'][2]] = i['Cell']
 	ELECTRON_CONFIG[i['Cell'][1]] = i['Cell'][5]
