@@ -96,7 +96,7 @@ def create_limiting(t):
 
 	_Equation_Entry = Entry(_Limiting_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 30)
 	
-	_Equation_Entry['state'] = 'DISABLED'
+	_Equation_Entry['state'] = 'disabled'
 
 	_Equation_Entry.insert(0, "Coming Soon")
 
@@ -104,13 +104,13 @@ def create_limiting(t):
 
 	_Mass_Entry = Entry(_Limiting_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 10)
 	
-	_Mass_Entry['state'] = 'DISABLED'
+	_Mass_Entry['state'] = 'disabled'
 
 	_Mass_Entry.bind("<Button-1>", clear_entry_mass)
 
 	_Limiting_Enter = Button(_Limiting_Frame, text = 'Get Limiting Reagent', command = lambda:limit(_Equation_Entry.get(), _Mass_Entry.get()), font = ('Montserrat', 10), width = 40)
 
-	_Limiting_Enter['state'] = 'DISABLED'
+	_Limiting_Enter['state'] = 'disabled'
 	
 	_Limiting_Enter.place(x = 5, y = 25)
 
