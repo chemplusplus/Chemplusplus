@@ -104,8 +104,6 @@ def bohr():
 					font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
 				bohr_info.place(x = 5, y = 5)
 
-				print(electrons.name, electrons.ec, electrons.br)
-
 				name_label = Label(bohr_window, bg = 'red',text = f'{backend.table[i][1]}')
 
 				name_label.place(x = 290, y = 290)
