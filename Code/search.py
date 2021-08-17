@@ -1,13 +1,12 @@
-'''
-This is the file which will search the chemistry stack exchange
-in order to give answers in the application
-'''
-
 from tkinter import *
+
+import tkinter.messagebox
 
 import sys
 
 import os
+
+import backend
 
 try:
 	import requests
@@ -23,10 +22,15 @@ import re
 
 import threading
 
-
-
-
 def search(t):
+	if(not t):
+		backend.invalid()
+		return
+
+	searches = []
+
+	to_return  = []
+
 	query = t.split(" ")
 	formatted_query = ""
 	for i in range(len(query)):
@@ -42,37 +46,48 @@ def search(t):
 
 	page_1_results = soup.find_all(class_="question-hyperlink")[:3]
 
-
-
 	for i in range(len(page_1_results)):
 		page_1_results[i] = str(page_1_results[i]).split("href=\"")[1]
 		page_1_results[i] = page_1_results[i].split("\"")[0]
 
-
-	searches = []
-
-	to_return  = []
-
 	for i in range(len(page_1_results)):
 		searches.append(f"https://chemistry.stackexchange.com{page_1_results[i]}")
 
-	for i in searches:
-		site = requests.get(i)
+	for i in range(len(searches)):
+		site = requests.get(searches[i])
 
 		soup2 = BeautifulSoup(site.text, "html.parser")
 
 		results = soup2.find_all(class_='s-prose js-post-body')
 
+		answered_time = soup2.find_all(class_='user-action-time')
+
+		authors = soup2.find_all(class_='user-details')
+
+		authors_filtered = []
+
+		answered_time_filtered = []
+
+		for j in range(len(answered_time)):
+			if 'edited' not in answered_time[j].text:
+				answered_time_filtered.append(answered_time[j].text.lstrip())
+				temp = authors[j].text.split()
+				authors_filtered.append(temp[0])
+
+		for k in range(len(answered_time_filtered)):
+			answered_time_filtered[k] = answered_time_filtered[k].replace('a','A',1).replace('\'','20') + 'by ' + authors_filtered[k] 
+
 		total = ''
 
 		for e in range(len(results)):
+			total += '\n' + answered_time_filtered[e] + authors_filtered[e] + '\n--------------------------------------------------'
 			total += results[e].text
 
-		total += f"\n\n\n\nSource:\t{i}"
+		total += f"\n\n\n\nSource:\t" + searches[i]
 
 		to_return.append(total)
 
-	return to_return
+	search_gui(to_return)
 
 def search_gui(res):
 	search_window = Tk()
@@ -117,9 +132,6 @@ def search_gui(res):
 
 	_Backward.place(x = 0, y = 0)
 
-
-
-
 def switch(res, txt, index):
 	global INDEX
 
@@ -156,9 +168,7 @@ def create_search(t):
 	_Search_Entry.place(x = 7, y = 0)
 
 
-	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search_gui(search(_Search_Entry.get())),
+	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search(_Search_Entry.get()),
 		font = ("Montserrat", 10), width = 40)
 
 	_Search_Enter.place(x = 5, y = 25)
-
-
