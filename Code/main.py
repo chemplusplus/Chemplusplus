@@ -32,7 +32,7 @@ import setup
 import string
 import search
 import backend
-import balence
+import balance
 import notation
 import structure
 import limiting
@@ -42,6 +42,7 @@ import significant
 import periodic
 from tkinter import *
 import tkinter.font as font
+import tkinter.messagebox
 
 try:
 	from PIL import ImageTk, Image
@@ -78,7 +79,7 @@ elif sys.platform == 'linux':
 
 limiting.create_limiting(root)
 	
-balence.create_balencer(root)
+balance.create_balancer(root)
 
 converter.create_converter(root)
 
@@ -102,12 +103,12 @@ periodic.create_periodic(root)
 #away the features of the comopound structures and such
 import urllib.request
 def connect(host='http://google.com'):
-    try:
-        urllib.request.urlopen(host) #Python 3.x
-        return True
-    except:
-        return False
+	try:
+		urllib.request.urlopen(host) #Python 3.x
+		return True
+	except:
+		return False
 # test
-print( 'connected' if connect() else 'no internet!' )
-
+if not connect():
+	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Some features will not work.')
 root.mainloop()

@@ -39,7 +39,7 @@ def render_table():
                 except:
                     pass
 
-                self.image = Image.open("\\photos\\Periodic.png")
+                self.image = Image.open(".\photos\\Periodic.png")
             self.image_copy = self.image.copy()
             self.background_image = ImageTk.PhotoImage(self.image)
             self.background = Label(master,image = self.background_image)

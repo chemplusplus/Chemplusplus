@@ -39,14 +39,13 @@ for i in range(len(temp2)):
 if sys.platform == 'linux':
 	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
 	temp3 = json.load(open("Assets/paions.json", "r"))["Contents"]
+	for i in temp3:
+		SYMBOLS.append(i)
 elif sys.platform == 'win32':
 	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
 	
 SYMBOLS = []
 	
-for i in temp3:
-	SYMBOLS.append(i)
-
 for i in temp:
 	table[i['Cell'][2]] = i['Cell']
 	ELECTRON_CONFIG[i['Cell'][1]] = i['Cell'][5]

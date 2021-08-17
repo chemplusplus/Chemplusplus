@@ -26,6 +26,7 @@ Open your terminal and navigate to the folder where you want to install Chem++. 
 ```sh
 git clone https://www.github.com/chemplusplus/Chemplusplus
 ```
+Run the executable main.exe
 ### Linux:
 Go to the Linux terminal and type:
 ```sh
