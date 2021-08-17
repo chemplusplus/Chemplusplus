@@ -24,19 +24,38 @@ The information of the elements comes from the [National Library of Medicine](ht
 First, you need to [install Git](https://www.jcchouinard.com/install-git/) on your computer.
 Open your terminal and navigate to the folder where you want to install Chem++. Then type:
 ```sh
-git clone https://www.github.com/MarkusFrig/Chemplusplus
+git clone https://www.github.com/chemplusplus/Chemplusplus
 ```
 ### Linux:
 Go to the Linux terminal and type:
 ```sh
-git clone https://www.github.com/MarkusFrig/Chemplusplus
+git clone https://www.github.com/chemplusplus/Chemplusplus
+```
+### Debian:
+Go to the Linux terminal and type:
+```sh
+python --version
+```
+If that returns `2.x` try this:
+```sh
+python3 --version
+```
+If that returns `3.x` type:
+```sh
+git clone https://www.github.com/chemplusplus/Chemplusplus
 ```
 ### Mac:
 First, you need to [install Git](https://www.jcchouinard.com/install-git/) on your computer.
 Open your terminal and navigate to the folder where you want to install Chem++. Then type:
 ```sh
-git clone https://www.github.com/MarkusFrig/Chemplusplus
+git clone https://www.github.com/chemplusplus/Chemplusplus
 ```
+# How To Use
+Windows:
+
+Linux:
+On Linux you will need to navigate to the start.sh file in Chemplusplus/Code/, this will run the python program that will start the GUI 
+
 # Dependencies
 You will need to have the following installed in order to run Chem++
 1. [Python 3.5+](https://www.python.org/)
@@ -87,10 +106,6 @@ When you call the unit conversion button a new window will pop up. The element y
 ## Search Bar
 
 The search bar eliminates the need for the user to open a browser. Whatever is entered into the input will be sent to the chemistry stack exchange. It will take the top 3 results and display them in a new window. There are forward and backward buttons which can be pressed in the top left of this new window, these allow you to shift between the answers. At the time of writing this there are still problems with the formatting of the questions.
-
-## Equation Balencer
-
-This feature is soon to come to chem++. It will balence all equations provided they have been inputted correctly
 
 ## Contact
 
