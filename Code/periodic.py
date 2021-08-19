@@ -19,13 +19,13 @@ def render_table():
 
     class Periodic_Table:
         def __init__(self,master):
-            if sys.platform == 'mac':
+            if sys.platform == 'darwin':
                 try:
                     os.chdir(f"{backend.STARTING_DIR}")
                 except:
                     pass
 
-                self.image = Image.open(".\photos\Periodic.png")
+                self.image = Image.open("photos/Periodic.png")
             elif sys.platform == 'linux':
                 try:
                     os.chdir(f"{backend.STARTING_DIR}")

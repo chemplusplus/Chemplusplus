@@ -33,7 +33,7 @@ os.chdir(STARTING_DIR)
 import json 
 table = dict()
 
-if sys.platform == "linux":
+if sys.platform == "linux" or sys.platform == 'darwin':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']['Columns']['Column']
 
 elif sys.platform == 'win32':
@@ -42,7 +42,7 @@ SYMBOLS = []
 
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
-if sys.platform == 'linux':
+if sys.platform == 'linux' or sys.platform == 'darwin':
 	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
 	temp3 = json.load(open("Assets/paions.json", "r"))["Contents"]
 	for i in temp3:

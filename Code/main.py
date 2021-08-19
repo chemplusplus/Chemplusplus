@@ -104,6 +104,8 @@ import urllib.request
 def connect(host='http://google.com'):
 	try:
 		urllib.request.urlopen(host) #Python 3.x
+		if sys.platform == 'darwin':
+			os.system('./Certificates.command')
 		return True
 	except:
 		return False
