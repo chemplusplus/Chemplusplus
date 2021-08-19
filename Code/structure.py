@@ -23,17 +23,17 @@ def clear_entry(event):
 def create_struct(t):
 	global _Struct_Frame, _Struct_Entry, _Struct_Enter
 
-	_Struct_Frame = LabelFrame(t, text = 'Compound Diagram', width = 200, height = 80, font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
+	_Struct_Frame = LabelFrame(t, text = 'Compound Diagram', width = 200, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
 
 	_Struct_Frame.place(x = 410, y = 100)
 
-	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 19)
+	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 19)
 
 	_Struct_Entry.insert(0, "Compound Name")
 
 	_Struct_Entry.bind("<Button-1>", clear_entry)
 
-	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = ('Montserrat', 10), width = 17)
+	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = (backend.GLOBAL_FONT, 10), width = 17)
 
 	_Struct_Enter.place(x = 5, y = 25)
 
@@ -64,7 +64,7 @@ def create_window():
 
 		Error_Message = "We could not find the\n compound you were looking for,\n try spelling out the \nfull name"
 
-		_Error_Label = Label(master = _Struct_Error, text = Error_Message, bg = "#373e40", fg = "#ffffff",font = ("Montserrat", 10))
+		_Error_Label = Label(master = _Struct_Error, text = Error_Message, bg = "#373e40", fg = "#ffffff",font = (backend.GLOBAL_FONT, 10))
 
 		_Error_Label.place(x= 50, y =0)
 
