@@ -24,6 +24,8 @@ LETTERS = {'s':2, 'p':6, 'd':10}
 
 STARTING_DIR = os.getcwd()
 
+import setup
+
 import json 
 table = dict()
 
