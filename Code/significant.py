@@ -89,7 +89,7 @@ def create_sig(t):
 
 	_Sig_Frame.place(x = 10, y = 190)
 
-	_Sig_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 30 ,font = (backend.GLOBAL_FONT, 10))
+	_Sig_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 34 ,font = (backend.GLOBAL_FONT, 10))
 
 	_Sig_Entry.insert(0, "Insert Number")
 
@@ -98,11 +98,11 @@ def create_sig(t):
 	_Sig_Entry.place(x = 7, y = 0)
 
 	_Sig_Enter = Button(master = _Sig_Frame, text = "Get Result",command = get_sig,
-		width = 40, font = (backend.GLOBAL_FONT, 10))
+		width = 45, font = (backend.GLOBAL_FONT, 10))
 
 	_Sig_Enter.place(x = 5, y = 25)
 
-	_Places_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 10 ,font = (backend.GLOBAL_FONT, 10))
+	_Places_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 12 ,font = (backend.GLOBAL_FONT, 10))
 
 	_Places_Entry.insert(0, "Places")
 
