@@ -101,7 +101,7 @@ def bohr():
 						electrons = backend.config(backend.table[e][1])
 
 				bohr_info = Label(bohr_window, text = f'Electrons = {backend.table[query][0]}\nCharge = {backend.table[query][10]}',
-					font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
+					font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
 				bohr_info.place(x = 5, y = 5)
 
 				name_label = Label(bohr_window, bg = 'red',text = f'{backend.table[i][1]}')
@@ -132,17 +132,17 @@ def clear_entry(event):
 def create_bohr(t):
 	global _Diagram_Frame, _Bohr_Entry, _Bohr_Enter
 
-	_Diagram_Frame = LabelFrame(t, text = "Bohr Diagram", width = 200, height = 80, font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
+	_Diagram_Frame = LabelFrame(t, text = "Bohr Diagram", width = 200, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
 
 	_Diagram_Frame.place(x = 210, y = 10)
 		
-	_Bohr_Entry = Entry(_Diagram_Frame,bg = '#ffffff', fg = '#121212', width = 19 ,font = ("Montserrat", 10))
+	_Bohr_Entry = Entry(_Diagram_Frame,bg = '#ffffff', fg = '#121212', width = 19 ,font = (backend.GLOBAL_FONT, 10))
 
 	_Bohr_Entry.insert(0, "Element Name")
 
 	_Bohr_Entry.bind("<Button-1>", clear_entry)
 
-	_Bohr_Enter = Button(_Diagram_Frame, text = "Get Diagram", width = 17,command = bohr, font = ("Montserrat", 10))
+	_Bohr_Enter = Button(_Diagram_Frame, text = "Get Diagram", width = 17,command = bohr, font = (backend.GLOBAL_FONT, 10))
 
 	_Bohr_Entry.place(x = 7, y =0)
 
