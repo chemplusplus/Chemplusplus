@@ -69,7 +69,7 @@ def create_converter(t):
 
 	_Conversion_Frame.place(x = 410, y = 10)
 
-	_Conversion_Input = Entry(_Conversion_Frame, bg = '#ffffff', fg = '#121212', width = 19 ,font = (backend.GLOBAL_FONT, 10))
+	_Conversion_Input = Entry(_Conversion_Frame, bg = '#ffffff', fg = '#121212', width = 22 ,font = (backend.GLOBAL_FONT, 10))
 
 	_Conversion_Input.insert(0, "Element Name")
 
@@ -77,6 +77,6 @@ def create_converter(t):
 
 	_Conversion_Input.place(x = 7, y = 0)
 
-	_Conversion_Calc_Button = Button(_Conversion_Frame, text = 'Convert Units', command = lambda:conv_calc(_Conversion_Input.get()), font = (backend.GLOBAL_FONT, 10), width = 17)
+	_Conversion_Calc_Button = Button(_Conversion_Frame, text = 'Convert Units', command = lambda:conv_calc(_Conversion_Input.get()), font = (backend.GLOBAL_FONT, 10), width = 20)
 
 	_Conversion_Calc_Button.place(x = 5, y = 25)
