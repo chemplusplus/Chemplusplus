@@ -159,7 +159,7 @@ def create_search(t):
 
 	_Search_Frame.place(x = 790, y = 10)
 
-	_Search_Entry = Entry(_Search_Frame, bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 42)
+	_Search_Entry = Entry(_Search_Frame, bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 47)
 
 	_Search_Entry.insert(0, "Search")
 
@@ -169,6 +169,6 @@ def create_search(t):
 
 
 	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search(_Search_Entry.get()),
-		font = (backend.GLOBAL_FONT, 10), width = 40)
+		font = (backend.GLOBAL_FONT, 10), width = 45)
 
 	_Search_Enter.place(x = 5, y = 25)
