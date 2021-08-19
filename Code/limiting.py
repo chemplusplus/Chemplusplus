@@ -4,6 +4,8 @@ This is the file for limiting reagents
 
 from tkinter import *
 
+import backend
+
 from backend import SYMBOLS
 
 from backend import table
