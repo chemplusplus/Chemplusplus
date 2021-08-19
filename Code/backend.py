@@ -32,7 +32,7 @@ if sys.platform == "linux":
 
 elif sys.platform == 'win32':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']["Columns"]["Column"]
-
+SYMBOLS = []
 
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
@@ -44,7 +44,7 @@ if sys.platform == 'linux':
 elif sys.platform == 'win32':
 	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
 	
-SYMBOLS = []
+
 	
 for i in temp:
 	table[i['Cell'][2]] = i['Cell']
