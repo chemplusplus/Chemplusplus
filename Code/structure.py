@@ -27,13 +27,13 @@ def create_struct(t):
 
 	_Struct_Frame.place(x = 410, y = 100)
 
-	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 19)
+	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 22)
 
 	_Struct_Entry.insert(0, "Compound Name")
 
 	_Struct_Entry.bind("<Button-1>", clear_entry)
 
-	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = (backend.GLOBAL_FONT, 10), width = 17)
+	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = (backend.GLOBAL_FONT, 10), width = 20)
 
 	_Struct_Enter.place(x = 5, y = 25)
 
