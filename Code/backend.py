@@ -26,6 +26,8 @@ STARTING_DIR = os.getcwd()
 
 import setup
 
+os.chdir(STARTING_DIR)
+
 import json 
 table = dict()
 
