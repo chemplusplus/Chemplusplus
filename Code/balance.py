@@ -187,13 +187,13 @@ def create_balancer(t):
 
 	_Balance_Frame.place(x = 10, y = 100)
 
-	_Balance_Entry = Entry(_Balance_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 42)
+	_Balance_Entry = Entry(_Balance_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 47)
 
 	_Balance_Entry.insert(0, "Enter Equation")
 
 	_Balance_Entry.bind("<Button-1>", clear_entry)
 
-	_balance_Enter = Button(_Balance_Frame, text = 'Get Balance', command = lambda:create_window(_Balance_Entry.get()), font = (backend.GLOBAL_FONT, 10), width = 40)
+	_balance_Enter = Button(_Balance_Frame, text = 'Get Balance', command = lambda:create_window(_Balance_Entry.get()), font = (backend.GLOBAL_FONT, 10), width = 45)
 
 	_balance_Enter.place(x = 5, y = 25)
 
