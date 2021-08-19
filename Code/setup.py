@@ -23,7 +23,7 @@ if sys.platform == 'linux':
 	except:
 		pass
 	for i in os.listdir():
-		if i not in os.listdir("/usr/local/share/fonts")
+		if i not in os.listdir("/usr/local/share/fonts"):
 			os.system(f"mv {i} /usr/local/share/fonts")
 			print(f"Installed Font {i.split(".")[0]}")
 	os.system("fc-cache -f -v")
