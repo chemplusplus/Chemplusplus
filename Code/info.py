@@ -56,13 +56,13 @@ def create_info(t):
 
 	_Info_Frame.place(x = 10, y = 10)
 
-	_Info_Entry = Entry(_Info_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 19)
+	_Info_Entry = Entry(_Info_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 22)
 
 	_Info_Entry.insert(0, "Element Name")
 
 	_Info_Entry.bind("<Button-1>", clear_entry)
 
-	_Info_Enter = Button(_Info_Frame, text = 'Get Info', command = info, font = (backend.GLOBAL_FONT, 10), width = 17)
+	_Info_Enter = Button(_Info_Frame, text = 'Get Info', command = info, font = (backend.GLOBAL_FONT, 10), width = 20)
 
 	_Info_Enter.place(x = 5, y = 25)
 
