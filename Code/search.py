@@ -104,7 +104,7 @@ def search_gui(res):
 
 	scroll.pack(side = RIGHT, fill = Y)
 
-	results_title = Label(search_window, text = f'Results for : {_Search_Entry.get()}', font = ("Montserrat", 24), bg = "#373e40", fg = "#ffffff")
+	results_title = Label(search_window, text = f'Results for : {_Search_Entry.get()}', font = (backend.GLOBAL_FONT, 24), bg = "#373e40", fg = "#ffffff")
 
 	results_title.pack()
 
@@ -115,7 +115,7 @@ def search_gui(res):
 
 	texts = []
 
-	result = Text(search_window, width = 120, height = 25, wrap = WORD, font = ("Montserrat", 10), yscrollcommand = scroll.set)
+	result = Text(search_window, width = 120, height = 25, wrap = WORD, font = (backend.GLOBAL_FONT, 10), yscrollcommand = scroll.set)
 	result.insert(END, res[0])
 	result.place(x = 50, y = 50 )
 
@@ -124,9 +124,9 @@ def search_gui(res):
 	global INDEX
 	INDEX = 0
 
-	_Forward = Button(search_window, text = ">", font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX+1))
+	_Forward = Button(search_window, text = ">", font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX+1))
 
-	_Backward = Button(search_window, text = "<", font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX-1))
+	_Backward = Button(search_window, text = "<", font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX-1))
 
 	_Forward.place(x = 40, y = 0)
 
@@ -155,11 +155,11 @@ def clear_entry(event):
 def create_search(t):
 	global _Search_Frame, _Search_Entry, _Search_Enter, _Search_Thread
 
-	_Search_Frame = LabelFrame(t, text = 'Search', width = 400, height = 80, font = ("Montserrat", 10), bg = "#373e40", fg = "#ffffff")
+	_Search_Frame = LabelFrame(t, text = 'Search', width = 400, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
 
 	_Search_Frame.place(x = 790, y = 10)
 
-	_Search_Entry = Entry(_Search_Frame, bg = '#ffffff', fg = '#121212', font = ("Montserrat", 10), width = 42)
+	_Search_Entry = Entry(_Search_Frame, bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 42)
 
 	_Search_Entry.insert(0, "Search")
 
@@ -169,6 +169,6 @@ def create_search(t):
 
 
 	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search(_Search_Entry.get()),
-		font = ("Montserrat", 10), width = 40)
+		font = (backend.GLOBAL_FONT, 10), width = 40)
 
 	_Search_Enter.place(x = 5, y = 25)
