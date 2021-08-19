@@ -136,13 +136,13 @@ def create_bohr(t):
 
 	_Diagram_Frame.place(x = 210, y = 10)
 		
-	_Bohr_Entry = Entry(_Diagram_Frame,bg = '#ffffff', fg = '#121212', width = 19 ,font = (backend.GLOBAL_FONT, 10))
+	_Bohr_Entry = Entry(_Diagram_Frame,bg = '#ffffff', fg = '#121212', width = 22 ,font = (backend.GLOBAL_FONT, 10))
 
 	_Bohr_Entry.insert(0, "Element Name")
 
 	_Bohr_Entry.bind("<Button-1>", clear_entry)
 
-	_Bohr_Enter = Button(_Diagram_Frame, text = "Get Diagram", width = 17,command = bohr, font = (backend.GLOBAL_FONT, 10))
+	_Bohr_Enter = Button(_Diagram_Frame, text = "Get Diagram", width = 20,command = bohr, font = (backend.GLOBAL_FONT, 10))
 
 	_Bohr_Entry.place(x = 7, y =0)
 
