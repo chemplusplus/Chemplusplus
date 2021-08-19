@@ -17,6 +17,8 @@ def add_space(s):
 				
 	return temp
 
+GLOBAL_FONT = 'Courier New'
+
 ELECTRON_CONFIG = dict()
 LEVELS = {'1':1, '2':8, '3':8, '4':16, '5':16, '6':16}
 S, P, D= 2, 6, 10
