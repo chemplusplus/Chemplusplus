@@ -1,10 +1,8 @@
 '''
 This is the structure grabber file
 '''
-
+from tkinter import ttk
 from tkinter import *
-
-from tkinter import messagebox
 
 import time
 
@@ -23,17 +21,17 @@ def clear_entry(event):
 def create_struct(t):
 	global _Struct_Frame, _Struct_Entry, _Struct_Enter
 
-	_Struct_Frame = LabelFrame(t, text = 'Compound Diagram', width = 200, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	_Struct_Frame = ttk.LabelFrame(t, text = 'Compound Diagram', width = 200, height = 80)
 
 	_Struct_Frame.place(x = 410, y = 100)
 
-	_Struct_Entry = Entry(_Struct_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 22)
+	_Struct_Entry = ttk.Entry(_Struct_Frame, width = backend.return_size('med'))
 
 	_Struct_Entry.insert(0, "Compound Name")
 
 	_Struct_Entry.bind("<Button-1>", clear_entry)
 
-	_Struct_Enter = Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), font = (backend.GLOBAL_FONT, 10), width = 20)
+	_Struct_Enter = ttk.Button(_Struct_Frame, text = 'Get Struct', command = lambda:create_window(), width = backend.return_size('med'))
 
 	_Struct_Enter.place(x = 5, y = 25)
 
@@ -42,9 +40,7 @@ def create_struct(t):
 def create_window():
 	global _Struct_Entry
 
-	x = _Struct_Entry.get()
-
-	
+	x = _Struct_Entry.get().capitalize()
 
 	try:
 		cid = pubchem.get_cid(x)
@@ -72,14 +68,10 @@ def create_window():
 
 	global my_image, _diagram
 
-
 	pubchem.get_2d_photo(cid)
-
 
 	if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != 'photos':
 	 	os.chdir('photos')
-
-
 
 	if f'{cid}.gif' not in os.listdir():
 	 	time.sleep(5)
@@ -91,7 +83,6 @@ def create_window():
 	_struct_Window.title(f'Diagram of {x}')
 
 	_struct_Window.resizable(False, False)
-
 
 	my_image = PhotoImage(master = _struct_Window, file = f'{cid}.gif')
 

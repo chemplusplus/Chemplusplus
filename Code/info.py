@@ -3,12 +3,12 @@ This is the info file
 '''
 
 import backend
-
+from tkinter import ttk
 from tkinter import *
 
 def info():
 
-	query = _Info_Entry.get()
+	query = _Info_Entry.get().capitalize()
 	if(query in backend.table):
 		for i in backend.table:
 			if i == query:
@@ -50,19 +50,18 @@ def clear_entry(event):
 def create_info(t):
 
 	global _Info_Entry, _Info_Frame, _Info_Enter
-
-
-	_Info_Frame = LabelFrame(t, text = 'Element Information', width = 200, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	
+	_Info_Frame = ttk.LabelFrame(t, text = 'Element Information', width = 200, height = 80)
 
 	_Info_Frame.place(x = 10, y = 10)
 
-	_Info_Entry = Entry(_Info_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 22)
+	_Info_Entry = ttk.Entry(_Info_Frame, width = backend.return_size('med'))
 
 	_Info_Entry.insert(0, "Element Name")
 
 	_Info_Entry.bind("<Button-1>", clear_entry)
 
-	_Info_Enter = Button(_Info_Frame, text = 'Get Info', command = info, font = (backend.GLOBAL_FONT, 10), width = 20)
+	_Info_Enter = ttk.Button(_Info_Frame, text = 'Get Info', command = info, width = backend.return_size('med'))
 
 	_Info_Enter.place(x = 5, y = 25)
 

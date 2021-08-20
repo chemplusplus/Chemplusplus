@@ -1,3 +1,4 @@
+from tkinter import ttk
 from tkinter import *
 from PIL import Image, ImageTk
 import backend
@@ -6,10 +7,9 @@ import sys, os #This is because we need to make sure of what os we are using thi
 
 def create_periodic(t):
     global periodic_button, periodic_label
-    periodic_label = LabelFrame(t, text="View Periodic Table", width=200, height=80, font=(
-        backend.GLOBAL_FONT, 10), bg="#373e40", fg="#ffffff")
+    periodic_label = ttk.LabelFrame(t, text="View Periodic Table", width=200, height=80)
     periodic_label.place(x=410,y=270)
-    periodic_button = Button(periodic_label,text="View",command=lambda:render_table(),font = (backend.GLOBAL_FONT, 10), width = 15)
+    periodic_button = ttk.Button(periodic_label,text="View",command=lambda:render_table(),width=backend.return_size('small'))
     periodic_button.place(x=18.5,y=15)
 
 def render_table():
@@ -33,7 +33,7 @@ def render_table():
                     pass
 
                 self.image = Image.open("photos/Periodic.png")
-            elif sys.platform == "win32":
+            elif sys.platform == "win32" or sys.platform == 'win64':
                 try:
                     os.chdir(f"{backend.STARTING_DIR}")
                 except:
