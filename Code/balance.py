@@ -193,7 +193,7 @@ def create_balancer(t):
 
 	_Balance_Entry.bind("<Button-1>", clear_entry)
 
-	_balance_Enter = ttk.Button(_Balance_Frame, text = 'Get Balance', width = backend.return_size('large'),command=lambda:balance(_Balance_Entry.get()))
+	_balance_Enter = ttk.Button(_Balance_Frame, text = 'Get Balance', width = backend.return_size('large'),command=lambda:create_window(_Balance_Entry.get()))
 
 	_balance_Enter.place(x = 5, y = 25)
 
