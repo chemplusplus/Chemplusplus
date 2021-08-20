@@ -1,3 +1,4 @@
+from tkinter import ttk
 from tkinter import *
 import backend
 
@@ -84,12 +85,11 @@ def create_sig(t):
 
 	global _Sig_Frame, _Sig_Entry,  _Sig_Enter, _Places_Entry
 
-	_Sig_Frame = LabelFrame(master = t, text = "Significant Figures", width = 400, 
-						height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	_Sig_Frame = ttk.LabelFrame(master = t, text = "Significant Figures", width = 400, height = 80)
 
 	_Sig_Frame.place(x = 10, y = 190)
 
-	_Sig_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 34 ,font = (backend.GLOBAL_FONT, 10))
+	_Sig_Entry = ttk.Entry(master = _Sig_Frame, width = backend.return_size('large')-5)
 
 	_Sig_Entry.insert(0, "Insert Number")
 
@@ -97,12 +97,11 @@ def create_sig(t):
 
 	_Sig_Entry.place(x = 7, y = 0)
 
-	_Sig_Enter = Button(master = _Sig_Frame, text = "Get Result",command = get_sig,
-		width = 45, font = (backend.GLOBAL_FONT, 10))
+	_Sig_Enter = ttk.Button(master = _Sig_Frame, text = "Get Result",command = get_sig, width = backend.return_size('large'))
 
 	_Sig_Enter.place(x = 5, y = 25)
 
-	_Places_Entry = Entry(master = _Sig_Frame, bg = '#ffffff', fg = '#121212', width = 12 ,font = (backend.GLOBAL_FONT, 10))
+	_Places_Entry = ttk.Entry(master = _Sig_Frame, width=backend.return_size('small'))
 
 	_Places_Entry.insert(0, "Places")
 

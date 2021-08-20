@@ -46,35 +46,37 @@ import tkinter.messagebox
 try:
 	from PIL import ImageTk, Image
 except:
-	if sys.platform == 'linux':
+	if sys.platform == 'linux' or sys.platform == 'darwin':
 		os.system('pip3 install PILLOW')
 		os.system('pip3 install pillow')
 	elif sys.platform == 'win32' or sys.platform == 'win64':
 		os.system('pip install PILLOW')
-		os.system('pip install pillow')
+		os.system('pip install pillow')	
 
 from PIL import ImageTk, Image
 
-
 root = Tk()
 
-root.configure(bg = '#373e40')
-
-root.geometry("1200x800")
-
-root.title("Chem++")
-
-root.resizable(False, False)
-
-if sys.platform == "win32":
+if sys.platform == "win32" or sys.platform == 'win64':
 	root.iconbitmap("Assets/the_icon.ico")
-
+	root.configure(bg = '#373e40')
 elif sys.platform == 'linux':
 	#normally linux should allow .xbm 
 	#files as the icon, but it didn't work
 	#on linux mint so just gonna use gif
     logo = PhotoImage(file='Assets/icon.gif')
     root.call('wm', 'iconphoto', root._w, logo)
+    root.configure(bg = '#373e40')
+elif sys.platform == 'darwin':
+    logo = PhotoImage(file='Assets/icon.gif')
+    root.call('wm', 'iconphoto', root._w, logo)
+    root.configure(bg = 'white')
+    
+root.geometry("1200x800")
+
+root.title("Chem++")
+
+root.resizable(False, False)
 
 limiting.create_limiting(root)
 	
@@ -104,6 +106,8 @@ import urllib.request
 def connect(host='http://google.com'):
 	try:
 		urllib.request.urlopen(host) #Python 3.x
+		if sys.platform == 'darwin':
+			os.system('./Certificates.command') #installs the certificate for pubchem for mac os only
 		return True
 	except:
 		return False

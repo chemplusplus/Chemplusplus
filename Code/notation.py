@@ -1,3 +1,4 @@
+from tkinter import ttk
 from tkinter import *
 import backend
 
@@ -55,12 +56,11 @@ def create_Notation(t):
 
 	global _Notation_Frame, _Notation_Entry,  _Notation_Enter, _Places_Entry
 
-	_Notation_Frame = LabelFrame(master = t, text = "Scientific Notation", width = 200, 
-						height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	_Notation_Frame = ttk.LabelFrame(master = t, text = "Scientific Notation", width = 200, height = 80)
 
 	_Notation_Frame.place(x = 410, y = 190)
 
-	_Notation_Entry = Entry(master = _Notation_Frame, bg = '#ffffff', fg = '#121212', width = 22 ,font = (backend.GLOBAL_FONT, 10))
+	_Notation_Entry = ttk.Entry(master = _Notation_Frame, width = backend.return_size('med'))
 
 	_Notation_Entry.insert(0, "Insert Number")
 
@@ -68,8 +68,7 @@ def create_Notation(t):
 
 	_Notation_Entry.place(x = 7, y = 0)
 
-	_Notation_Enter = Button(master = _Notation_Frame, text = "Get Sci Notation",command = get_Notation,
-		width = 20, font = (backend.GLOBAL_FONT, 10))
+	_Notation_Enter = ttk.Button(master = _Notation_Frame, text = "Get Sci Notation",command = get_Notation, width=backend.return_size('med'))
 
 	_Notation_Enter.place(x = 5, y = 25)
 

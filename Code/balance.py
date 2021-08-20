@@ -2,7 +2,7 @@
 #foil in math
 #for this reason I need to create something that returns something
 
-
+from tkinter import ttk
 from tkinter import *
 
 import sys, os, backend
@@ -183,17 +183,17 @@ def create_balancer(t):
 
 	global _Balance_Frame, _Balance_Entry, _balance_Enter
 
-	_Balance_Frame = LabelFrame(t, text = 'Equation Balancer', width = 400, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	_Balance_Frame = ttk.LabelFrame(t, text = 'Equation Balancer', width = 400, height = 80)
 
 	_Balance_Frame.place(x = 10, y = 100)
 
-	_Balance_Entry = Entry(_Balance_Frame,bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 47)
+	_Balance_Entry = ttk.Entry(_Balance_Frame, width = backend.return_size('large'))
 
 	_Balance_Entry.insert(0, "Enter Equation")
 
 	_Balance_Entry.bind("<Button-1>", clear_entry)
 
-	_balance_Enter = Button(_Balance_Frame, text = 'Get Balance', command = lambda:create_window(_Balance_Entry.get()), font = (backend.GLOBAL_FONT, 10), width = 45)
+	_balance_Enter = ttk.Button(_Balance_Frame, text = 'Get Balance', width = backend.return_size('large'),command=lambda:balance(_Balance_Entry.get()))
 
 	_balance_Enter.place(x = 5, y = 25)
 

@@ -12,6 +12,43 @@ import sys
 
 import tkinter.messagebox
 
+win_width_small = 10 #adjust width for windows here
+win_width_med = 20 
+win_width_large = 50 
+
+mac_width_small = 10 #adjust width for mac os here
+mac_width_med = 13 
+mac_width_large = 35 
+
+linux_width_small = 10 #adjust width for linux here
+linux_width_med = 15 
+linux_width_large = 39 
+
+def return_size(t):
+	os = sys.platform
+	if(t == 'small'):
+		if(os == 'win32' or os == 'win64'):
+			return win_width_small
+		elif(os == 'darwin'):
+			return mac_width_small
+		elif(os == 'linux'):
+			return linux_width_small
+	elif(t == 'med'):
+		if(os == 'win32' or os == 'win64'):
+			return win_width_med
+		elif(os == 'darwin'):
+			return mac_width_med
+		elif(os == 'linux'):
+			return linux_width_med
+	elif(t == 'large'):
+		if(os == 'win32' or os == 'win64'):
+			return win_width_large
+		elif(os == 'darwin'):
+			return mac_width_large
+		elif(os == 'linux'):
+			return linux_width_large
+
+
 def add_space(s):
 	temp = re.sub('([A-Z])', r' \1', s)
 				
@@ -33,7 +70,7 @@ os.chdir(STARTING_DIR)
 import json 
 table = dict()
 
-if sys.platform == "linux":
+if sys.platform == "linux" or sys.platform == 'darwin':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']['Columns']['Column']
 
 elif sys.platform == 'win32':
@@ -42,7 +79,7 @@ SYMBOLS = []
 
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
-if sys.platform == 'linux':
+if sys.platform == 'linux' or sys.platform == 'darwin':
 	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
 	temp3 = json.load(open("Assets/paions.json", "r"))["Contents"]
 	for i in temp3:
@@ -133,11 +170,15 @@ def config(x):
 
 def calc_units(pe, me, ge, e):
 	temp_pe, temp_me, temp_ge = pe.get(), me.get(), ge.get()
-	e = e.get()
+	e = e.get().capitalize()
 	grams_to_mols = 0
-	for i in table:
-		if i == e:
-			grams_to_mols = float(table[i][3])
+	if e in table:
+		for i in table:
+			if i == e:
+				grams_to_mols = float(table[i][3])
+	else:
+		invalid()
+		return
 	if temp_pe != '':
 		temp_pe = float(temp_pe)
 		me.insert(0, temp_pe/(6.02*10**23))

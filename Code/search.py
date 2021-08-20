@@ -1,6 +1,5 @@
+from tkinter import ttk
 from tkinter import *
-
-import tkinter.messagebox
 
 import sys
 
@@ -117,16 +116,16 @@ def search_gui(res):
 
 	result = Text(search_window, width = 120, height = 25, wrap = WORD, font = (backend.GLOBAL_FONT, 10), yscrollcommand = scroll.set)
 	result.insert(END, res[0])
-	result.place(x = 50, y = 50 )
+	result.pack()
 
 	scroll.config(command = result.yview)
 
 	global INDEX
 	INDEX = 0
 
-	_Forward = Button(search_window, text = ">", font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX+1))
+	_Forward = ttk.Button(search_window, text = ">", command = lambda:switch(res, result, INDEX+1),width=1)
 
-	_Backward = Button(search_window, text = "<", font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff", command = lambda:switch(res, result, INDEX-1))
+	_Backward = ttk.Button(search_window, text = "<", command = lambda:switch(res, result, INDEX-1),width=1)
 
 	_Forward.place(x = 40, y = 0)
 
@@ -155,11 +154,15 @@ def clear_entry(event):
 def create_search(t):
 	global _Search_Frame, _Search_Entry, _Search_Enter, _Search_Thread
 
-	_Search_Frame = LabelFrame(t, text = 'Search', width = 400, height = 80, font = (backend.GLOBAL_FONT, 10), bg = "#373e40", fg = "#ffffff")
+	s = ttk.Style()
+	s.configure('TLabelframe',background='#373e40')
+	s.configure('TLabelframe.Label',background='#373e40')
+	s.configure('TLabelframe.Label',foreground='white')
+	_Search_Frame = ttk.LabelFrame(t, text = 'Search', width = 400, height = 80)
 
 	_Search_Frame.place(x = 790, y = 10)
 
-	_Search_Entry = Entry(_Search_Frame, bg = '#ffffff', fg = '#121212', font = (backend.GLOBAL_FONT, 10), width = 47)
+	_Search_Entry = ttk.Entry(_Search_Frame, width = backend.return_size('large'))
 
 	_Search_Entry.insert(0, "Search")
 
@@ -167,8 +170,6 @@ def create_search(t):
 
 	_Search_Entry.place(x = 7, y = 0)
 
-
-	_Search_Enter = Button(_Search_Frame, text = "Enter Search", command = lambda:search(_Search_Entry.get()),
-		font = (backend.GLOBAL_FONT, 10), width = 45)
+	_Search_Enter = ttk.Button(_Search_Frame, text = "Enter Search", command = lambda:search(_Search_Entry.get()),width=backend.return_size('large'))
 
 	_Search_Enter.place(x = 5, y = 25)
