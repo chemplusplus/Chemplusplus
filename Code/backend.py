@@ -12,12 +12,14 @@ import sys
 
 import tkinter.messagebox
 
-win_width_small = 5 #adjust spacing for windows here for supported os
-win_width_med = 10 #adjust spacing for windows here for supported os
-win_width_large = 15 #adjust spacing for windows here for supported os
+win_width_small = 10 #adjust spacing for windows here for supported os
+win_width_med = 20 #adjust spacing for windows here for supported os
+win_width_large = 50 #adjust spacing for windows here for supported os
+
 mac_width_small = 10 #adjust spacing for windows here for supported os
 mac_width_med = 13 #adjust spacing for windows here for supported os
 mac_width_large = 35 #adjust spacing for windows here for supported os
+
 linux_width_small = 5 #adjust spacing for windows here for supported os
 linux_width_med = 10 #adjust spacing for windows here for supported os
 linux_width_large = 15 #adjust spacing for windows here for supported os
