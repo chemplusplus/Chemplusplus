@@ -10,16 +10,12 @@ import backend
 try:
 	import requests
 except:
-	if sys.platform == "linux":
+	if sys.platform == 'linux' or sys.platform == 'darwin':
 		os.system('pip3 install requests')
-	elif sys.platform == 'windows':
+	elif sys.platform == 'win32' or sys.platform == 'win64':
 		os.system('pip install requests')
 
 from bs4 import BeautifulSoup
-
-import re
-
-import threading
 
 def search(t):
 	if(not t):

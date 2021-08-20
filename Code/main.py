@@ -27,15 +27,11 @@ import os
 import sys
 import bohr
 import info
-import math
-import string
 import search
-import backend
 import balance
 import notation
 import structure
 import limiting
-import threading
 import converter
 import significant
 import periodic
@@ -58,7 +54,7 @@ from PIL import ImageTk, Image
 root = Tk()
 
 if sys.platform == "win32" or sys.platform == 'win64':
-	root.iconbitmap("Assets/the_icon.ico")
+	#root.iconbitmap("Assets/the_icon.ico") #causes false windows defender detection if uncommented
 	root.configure(bg = '#373e40')
 elif sys.platform == 'linux':
 	#normally linux should allow .xbm 

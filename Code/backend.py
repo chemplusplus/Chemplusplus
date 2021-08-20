@@ -73,7 +73,7 @@ table = dict()
 if sys.platform == "linux" or sys.platform == 'darwin':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']['Columns']['Column']
 
-elif sys.platform == 'win32':
+elif sys.platform == 'win32' or sys.platform == 'win64':
 	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']["Columns"]["Column"]
 SYMBOLS = []
 
