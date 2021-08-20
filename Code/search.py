@@ -154,10 +154,12 @@ def clear_entry(event):
 def create_search(t):
 	global _Search_Frame, _Search_Entry, _Search_Enter, _Search_Thread
 
-	s = ttk.Style()
-	s.configure('TLabelframe',background='#373e40')
-	s.configure('TLabelframe.Label',background='#373e40')
-	s.configure('TLabelframe.Label',foreground='white')
+	if(sys.platform != 'darwin'):
+		s = ttk.Style()
+		s.configure('TLabelframe',background='#373e40')
+		s.configure('TLabelframe.Label',background='#373e40')
+		s.configure('TLabelframe.Label',foreground='white')
+		
 	_Search_Frame = ttk.LabelFrame(t, text = 'Search', width = 400, height = 80)
 
 	_Search_Frame.place(x = 790, y = 10)
