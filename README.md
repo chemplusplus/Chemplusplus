@@ -11,9 +11,11 @@ This is a chemistry application that provides all the info you need. Made for st
 3.  [Notice](#notice)
 4.  [How To Install](#how-to-install)
 5.  [How To Use](#how-to-use)
-6.  [Dependencies](#dependencies)
-7.  [Visit Our Website](#visit-our-website)
-8.  [Documentation](#documentation)
+6.  [IMPORTANT!!](#IMPORTANT!!)
+7.  [Dependencies](#dependencies)
+8.  [Visit Our Website](#visit-our-website)
+9.  [For Developers](#For-Developers)
+10. [Documentation](#documentation)
 
 # Notice
 
@@ -62,7 +64,7 @@ Our website was coded in HTML and can be found [here](https://chemplusplus.githu
 
 # For Developers
 
-Our executable files are compiled using [PyInstaller](https://www.pyinstaller.org/). The preconfigured spec files are located in the ..\Chemplusplus\Spec_Files directory.
+Our executable files are compiled using [PyInstaller](https://www.pyinstaller.org/). The preconfigured spec files are located in the `..\Chemplusplus\Spec_Files` directory.
 
 # Documentation
 
