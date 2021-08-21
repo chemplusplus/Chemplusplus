@@ -23,64 +23,38 @@ The information of the elements comes from the [National Library of Medicine](ht
 
 ### Windows:
 
-First, you need to [install Git](https://www.jcchouinard.com/install-git/) on your computer.
-Open your terminal and navigate to the folder where you want to install Chem++. Then type:
-
-```sh
-git clone https://www.github.com/chemplusplus/Chemplusplus
-```
+Head over to the download section of our [Website](https://chemplusplus.github.io/download.html). Click on the green Download Chem++ button.
+Select Windows, wait until the download completes, extract the files and your good to go.
 
 ### Linux:
 
-Go to the Linux terminal and type:
+Head over to the download section of our [Website](https://chemplusplus.github.io/download.html). Click on the green Download Chem++ button.
+Select Linux, wait until the download completes, extract the files and your good to go.
 
-```sh
-git clone https://www.github.com/chemplusplus/Chemplusplus
-```
+### MacOS:
 
-### Debian:
-
-Go to the Linux terminal and type:
-
-```sh
-python --version
-```
-
-If that returns `2.x` try this:
-
-```sh
-python3 --version
-```
-
-If that returns `3.x` type:
-
-```sh
-git clone https://www.github.com/chemplusplus/Chemplusplus
-```
-
-### Mac:
-
-First, you need to [install Git](https://www.jcchouinard.com/install-git/) on your computer.
-Open your terminal and navigate to the folder where you want to install Chem++. Then type:
-
-```sh
-git clone https://www.github.com/chemplusplus/Chemplusplus
-```
+Head over to the download section of our [Website](https://chemplusplus.github.io/download.html). Click on the green Download Chem++ button.
+Select MacOS, wait until the download completes, extract the files and your good to go.
 
 # How To Use
 
 Windows:
-Run the executable main.exe
+Double click the executable Chem++ Windows.exe
 
 Linux:
-On Linux you will need to navigate to the start.sh file in Chemplusplus/Code/, this will run the python program that will start the GUI
+Double click the executable Chem++ Linux.exe
+
+MacOS:
+Double click the executable Chem++ Mac_OS
+
+# IMPORTANT!!
+
+If your antivirus detects our software as being malicious, please let us know and report it as a false positive. Our software is not malicious.
 
 # Dependencies
 
-You will need to have the following installed in order to run Chem++
-
-1. [Python 3.5+](https://www.python.org/)
-2. [Tkinter](https://docs.python.org/3/library/tkinter.html) (Properly installed) {For Linux Users}
+None required :)
+Simply run the executable for your operating system.
 
 # Visit Our Website
 
@@ -92,7 +66,7 @@ Here Is The Offical Documentation For Chem++
 
 ## Info
 
-When you call the info command in the application it will return the following information about the element
+When you call the info command in the application it will return the following information about the element:
 
 1. AtomicNumber
 2. Symbol
@@ -112,25 +86,45 @@ When you call the info command in the application it will return the following i
 16. GroupBlock
 17. YearDiscovered
 
-At the time of writing this documentation there is no margin for error when it comes to spelling the name of the lement correctly. It must be spelled correctly with the first letter being capitalized.
-
 ## Bohr Diagram
 
-When you call for a bohr diagram from the application it will create a new window with the diagram along with the following information
+When you call for a bohr diagram from the application it will create a new window with the diagram along with the following information:
 
 1. The charge
 2. The number of electrons
 
-At the time of writing this documentation there is no margin for error when it comes to spelling the name of the lement correctly. It must be spelled correctly with the first letter being capitalized.
-
 ## Unit Conversion
 
-When you call the unit conversion button a new window will pop up. The element you put into the original box will be used for calculations as each elemnts has a different grams to mole ratio. At the time of writing this only one input field can have information i.e. 5 mols of Helium or 10g of Hydrogen. There is a clear button in the bottom right which automaticall clears the boxes for ease of access. There is also an enter button. When this is pressed it will automatically fill the remaining boxes with thir according values.
+When you call the unit conversion button a new window will pop up. The element you put into the original box will be used for calculations as each elemnts has a different grams to mole ratio. At the time of writing this only one input field can have information i.e. 5 mols of Helium or 10g of Hydrogen. There is a clear button in the bottom right which automatically clears the boxes for ease of access. There is also an enter button. When this is pressed it will automatically fill the remaining boxes with their according values.
 
 ## Search Bar
 
-The search bar eliminates the need for the user to open a browser. Whatever is entered into the input will be sent to the chemistry stack exchange. It will take the top 3 results and display them in a new window. There are forward and backward buttons which can be pressed in the top left of this new window, these allow you to shift between the answers. At the time of writing this there are still problems with the formatting of the questions.
+The search bar eliminates the need for the user to open a browser. Whatever is entered into the input will be sent to the chemistry stack exchange. It will take the top 3 results and display them in a new window. There are forward and backward buttons which can be pressed in the top left of this new window, these allow you to shift between the answers. We are working on formatting the results.
+
+## Equation Balancer
+
+The equation balancer eliminates the need to do complex calculations. By simply entering your unbalanced equation and clicking on get balance, your balanced equation will be returned to you in milliseconds!
+
+## Compound Diagram
+
+No need to open an browser. After entering a compound name, clicking on get struct, your entry will be searched on the pubchem database. In a few seconds, your compound diagram will be returned back to you.
+
+## Significant Figures
+
+Ever wondering how to write a number in 4 sf? No need to worry anymore! By simply entering your number into the enter equation field, the sf into the places field, and clicking on get result, the answer will instantly appear in the enter equation field.
+
+## Scientific Notation
+
+Scientific notation is sometimes hard to understand. By simply entering a number and clicking on get sci notation, you will instantly know how to write a number in scientific notation.
+
+## Limiting Reagent
+
+Coming Soon.
+
+## View Periodic Table
+
+Did you loose your periodic table? No need to look online for one, simply click on view and a high quality periodic table will appear.
 
 ## Contact
 
-If you have any questions please ask them in our discord server
+If you have any questions please ask them in our Discord server
