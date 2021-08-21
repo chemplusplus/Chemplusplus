@@ -53,7 +53,7 @@ If your antivirus detects our software as being malicious, please let us know an
 
 # Dependencies
 
-None required :)\n
+None required :)
 Simply run the executable for your operating system.
 
 # Visit Our Website
