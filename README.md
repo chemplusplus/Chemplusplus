@@ -11,7 +11,7 @@ This is a chemistry application that provides all the info you need. Made for st
 3.  [Notice](#notice)
 4.  [How To Install](#how-to-install)
 5.  [How To Use](#how-to-use)
-6.  [IMPORTANT!!](#IMPORTANT!!)
+6.  [IMPORTANT!!](#IMPORTANT)
 7.  [Dependencies](#dependencies)
 8.  [Visit Our Website](#visit-our-website)
 9.  [For Developers](#For-Developers)
@@ -49,7 +49,7 @@ Double click the executable Chem++ Linux.exe
 MacOS:
 Double click the executable Chem++ Mac_OS
 
-# IMPORTANT!!
+# IMPORTANT
 
 If your antivirus detects our software as being malicious, please let us know and report it as a false positive. Our software is not malicious.
 
