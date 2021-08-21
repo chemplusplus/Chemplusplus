@@ -60,6 +60,10 @@ Simply run the executable for your operating system.
 
 Our website was coded in HTML and can be found [here](https://chemplusplus.github.io).
 
+# For Developers
+
+Our executable files are compiled using [PyInstaller](https://www.pyinstaller.org/). The preconfigured spec files are located in the ..\Chemplusplus\Spec_Files directory.
+
 # Documentation
 
 Here Is The Offical Documentation For Chem++
