@@ -83,13 +83,13 @@ elif sys.platform == 'linux':
 	#normally linux should allow .xbm 
 	#files as the icon, but it didn't work
 	#on linux mint so just gonna use gif
-    logo = PhotoImage(file='Assets/icon.gif')
+    logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = '#373e40')
     app_info = ttk.Label(root,text='Chem++ V1.0.0 Linux by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
-    info_x = 780
+    info_x = 710
     info_y = 720
 elif sys.platform == 'darwin':
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
