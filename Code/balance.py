@@ -7,15 +7,7 @@ from tkinter import *
 
 import sys, os, backend
 
-
-try:
-	from sympy import Matrix, lcm
-except:
-	if sys.platform == "linux" or sys.platform == 'darwin':
-		os.system("pip3 install sympy")
-	elif sys.platform == 'win32' or sys.platform == 'win64':
-		os.system("pip install sympy")
-
+from sympy import Matrix, lcm
 
 from string import ascii_uppercase as UPPERCASE
 
@@ -24,7 +16,6 @@ from string import ascii_lowercase as LOWERCASE
 from string import digits as DIGITS
 
 from backend import SYMBOLS
-
 
 def get_elements(x):
 
