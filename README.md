@@ -11,7 +11,7 @@ This is a chemistry application that provides all the info you need. Made for st
 3.  [Notice](#notice)
 4.  [How To Install](#how-to-install)
 5.  [How To Use](#how-to-use)
-6.  [IMPORTANT!!](#IMPORTANT)
+6.  [IMPORTANT](#IMPORTANT)
 7.  [Dependencies](#dependencies)
 8.  [Visit Our Website](#visit-our-website)
 9.  [For Developers](#For-Developers)
