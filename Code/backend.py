@@ -2,8 +2,6 @@
 
 This is the backend for my chemistry helper
 '''
-import string
-
 import re
 
 import os
@@ -48,6 +46,12 @@ def return_size(t):
 		elif(os == 'linux'):
 			return linux_width_large
 
+def resource_path(relative_path): 
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, relative_path)
 
 def add_space(s):
 	temp = re.sub('([A-Z])', r' \1', s)
@@ -69,25 +73,19 @@ os.chdir(STARTING_DIR)
 
 import json 
 table = dict()
-
-if sys.platform == "linux" or sys.platform == 'darwin':
-	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']['Columns']['Column']
-
-elif sys.platform == 'win32' or sys.platform == 'win64':
-	temp2 = json.load(open("Assets/ptable.json", 'r'))['Table']["Columns"]["Column"]
+temp2 = json.load(open(resource_path("Assets/ptable.json"), 'r'))['Table']["Columns"]["Column"]
+	
 SYMBOLS = []
 
 for i in range(len(temp2)):
 	temp2[i] = add_space(temp2[i])
 if sys.platform == 'linux' or sys.platform == 'darwin':
-	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
-	temp3 = json.load(open("Assets/paions.json", "r"))["Contents"]
+	temp = json.load(open(resource_path("Assets/ptable.json"), "r"))["Table"]["Row"]
+	temp3 = json.load(open(resource_path("Assets/paions.json"), "r"))["Contents"]
 	for i in temp3:
 		SYMBOLS.append(i)
-elif sys.platform == 'win32':
-	temp = json.load(open("Assets/ptable.json", "r"))["Table"]["Row"]
-	
-
+elif sys.platform == 'win32' or sys.platform == 'win64':
+	temp = json.load(open(resource_path("Assets/ptable.json"), "r"))["Table"]["Row"]
 	
 for i in temp:
 	table[i['Cell'][2]] = i['Cell']
@@ -181,7 +179,7 @@ def calc_units(pe, me, ge, e):
 		return
 	if temp_pe != '':
 		temp_pe = float(temp_pe)
-		me.insert(0, temp_pe/(6.02*10**23))
+		me.insert(0, round(temp_pe/(6.02*10**23),5))
 		ge.insert(0, (temp_pe/(6.02*10**23)*grams_to_mols))
 	elif temp_me != '':
 		temp_me = float(temp_me)
@@ -190,7 +188,7 @@ def calc_units(pe, me, ge, e):
 
 	elif temp_ge != '':
 		temp_ge = float(temp_ge)
-		me.insert(0, temp_ge/grams_to_mols)
+		me.insert(0, round(temp_ge/grams_to_mols,5))
 		pe.insert(0, str(round((temp_ge/grams_to_mols)*6.02, 5))+"*10^23")
 
 def clear_values(pe, me, ge, e):

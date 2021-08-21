@@ -20,6 +20,8 @@ def get_sig():
 		places = int(_Places_Entry.get())
 
 	except:
+		_Places_Entry.delete(0,END)
+		_Sig_Entry.delete(0,END)
 		backend.invalid()
 		return
 

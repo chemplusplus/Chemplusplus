@@ -35,9 +35,10 @@ import limiting
 import converter
 import significant
 import periodic
+from tkinter import ttk
 from tkinter import *
-import tkinter.font as font
 import tkinter.messagebox
+import webbrowser
 
 try:
 	from PIL import ImageTk, Image
@@ -51,11 +52,19 @@ except:
 
 from PIL import ImageTk, Image
 
+def callback(url):
+    webbrowser.open_new(url)
+
 root = Tk()
+
+s = ttk.Style()
 
 if sys.platform == "win32" or sys.platform == 'win64':
 	#root.iconbitmap("Assets/the_icon.ico") #causes false windows defender detection if uncommented
-	root.configure(bg = '#373e40')
+    root.configure(bg = '#373e40')
+    app_info = ttk.Label(root,text='Chem++ V1.0.0 Windows by Markus Frig 2021. Visit our website for support:')
+    s.configure('Link.TLabel',background='#373e40',foreground='blue')
+    s.configure('TLabel',background='#373e40',foreground='white')
 elif sys.platform == 'linux':
 	#normally linux should allow .xbm 
 	#files as the icon, but it didn't work
@@ -63,11 +72,22 @@ elif sys.platform == 'linux':
     logo = PhotoImage(file='Assets/icon.gif')
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = '#373e40')
+    app_info = ttk.Label(root,text='Chem++ V1.0.0 Linux by Markus Frig 2021. Visit our website for support:')
+    s.configure('Link.TLabel',background='#373e40',foreground='blue')
+    s.configure('TLabel',background='#373e40',foreground='white')
 elif sys.platform == 'darwin':
     logo = PhotoImage(file='Assets/icon.gif')
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = 'white')
+    app_info = ttk.Label(root,text='Chem++ V1.0.0 Mac_OS by Markus Frig 2021. Visit our website for support:')
+    s.configure('Link.TLabel',foreground='blue')
     
+app_info.place(x=780,y=720)
+
+link1 = ttk.Label(root, text="HERE",cursor="hand2",style='Link.TLabel')
+link1.place(x=1150,y=750)
+link1.bind("<Button-1>", lambda e: callback("https://chemplusplus.github.io/"))
+
 root.geometry("1200x800")
 
 root.title("Chem++")

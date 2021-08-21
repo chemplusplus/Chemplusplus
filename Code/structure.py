@@ -62,7 +62,7 @@ def create_window():
 
 		_Error_Label = Label(master = _Struct_Error, text = Error_Message, bg = "#373e40", fg = "#ffffff",font = (backend.GLOBAL_FONT, 10))
 
-		_Error_Label.place(x= 50, y =0)
+		_Error_Label.pack()
 
 		return
 
@@ -70,8 +70,8 @@ def create_window():
 
 	pubchem.get_2d_photo(cid)
 
-	if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != 'photos':
-	 	os.chdir('photos')
+	if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != backend.resource_path('photos'):
+	 	os.chdir(backend.resource_path('photos'))
 
 	if f'{cid}.gif' not in os.listdir():
 	 	time.sleep(5)
