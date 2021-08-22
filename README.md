@@ -152,12 +152,13 @@ This project uses the [GNU General Public License v3.0](https://github.com/chemp
 # Credits :heart:
 Thank you to the following, who contributed to [Chem++](https://github.com/chemplusplus/Chemplusplus), [The Chem++ Website](https://chemplusplus.github.io), [Chem++ Console](https://github.com/chemplusplus/Chem_Console), and [Web Edition](https://github.com/chemplusplus/Chem-Web), and the [Contact-Form](https://github.com/chemplusplus/Contact-Form) repository.
 
-|User|Commits|Pull Requests|Issues
-|--|--|--|--|--|
+|User|Commits|Pull Requests|Issues|
+|--|--|--|--|
 |[MakusFrig](https://github.com/MakusFrig)|170|1|0|
 |[WayneSeng](https://github.com/WayneSeng)|24|5|0|
 |[SlipperyDuck777](https://github.com/SlipperyDuck777)|119|3|0|
 |[shreyshreyansh](https://github.com/shreyshreyansh)|2|2|2|
 |[Gatorific888](https://github.com/Gatorific888)|0|0|1|
 |[crthpl](https://github.com/crthpl)|2|0|0|
+
 All data as of August 21st 2021
