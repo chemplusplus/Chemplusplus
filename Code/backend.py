@@ -65,11 +65,9 @@ LEVELS = {'1':1, '2':8, '3':8, '4':16, '5':16, '6':16}
 S, P, D= 2, 6, 10
 LETTERS = {'s':2, 'p':6, 'd':10}
 
-STARTING_DIR = os.getcwd()
+#STARTING_DIR = os.getcwd()
 
-import setup
-
-os.chdir(STARTING_DIR)
+#os.chdir(STARTING_DIR)
 
 import json 
 table = dict()

@@ -23,29 +23,10 @@ Black Text  = 121212
 Extra = 17c3b2
 
 '''
+import setup
+#setup.install() #comment when compiling to executable
 import sys
 import os
-
-try:
-	from PIL import ImageTk, Image
-except:
-	if sys.platform == 'linux' or sys.platform == 'darwin':
-		os.system('pip3 install PILLOW')
-		os.system('pip3 install pillow')
-	elif sys.platform == 'win32' or sys.platform == 'win64':
-		os.system('pip install PILLOW')
-		os.system('pip install pillow')	
-
-from PIL import ImageTk, Image
-
-try:
-	from sympy import Matrix, lcm
-except:
-	if sys.platform == "linux" or sys.platform == 'darwin':
-		os.system("pip3 install sympy")
-	elif sys.platform == 'win32' or sys.platform == 'win64':
-		os.system("pip install sympy")
-
 import bohr
 import info
 import search
@@ -72,7 +53,7 @@ info_x = -1 #ttk on mac os is different on windows and linux
 info_y = -1 #this is why we need different spacing to make everything look good
 
 if sys.platform == "win32" or sys.platform == 'win64':
-	#root.iconbitmap("Assets/the_icon.ico") #causes false windows defender detection if uncommented
+    root.iconbitmap(backend.resource_path("Assets/the_icon.ico")) #causes false windows defender detection if uncommented
     root.configure(bg = '#373e40')
     app_info = ttk.Label(root,text='Chem++ V1.0.0 Windows by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
@@ -99,8 +80,6 @@ elif sys.platform == 'darwin':
     s.configure('Link.TLabel',foreground='blue')
     info_x = 700
     info_y = 720
-    if sys.platform == 'darwin':
-	    os.system(backend.resource_path('./Certificates.command')) #installs the certificate for pubchem for mac os only
     
 app_info.place(x=info_x,y=info_y)
 

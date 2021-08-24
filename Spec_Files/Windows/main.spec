@@ -7,7 +7,7 @@ block_cipher = None
 a = Analysis(['main.py'],
              pathex=['C:\\Users\\Wane\\Documents\\GitHub\\Chemplusplus\\Code'],
              binaries=[],
-             datas=[('Assets', 'Assets'),('photos','photos')],
+             datas=[('Assets', 'Assets'),('photos', 'photos')],
              hiddenimports=[],
              hookspath=[],
              hooksconfig={},
@@ -38,4 +38,4 @@ exe = EXE(pyz,
           argv_emulation=False,
           target_arch=None,
           codesign_identity=None,
-          entitlements_file=None )
+          entitlements_file=None , icon='c:\\Users\\Wane\\Documents\\GitHub\\Chemplusplus\\Code\\Assets\\the_icon.ico')

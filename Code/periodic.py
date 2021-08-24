@@ -2,8 +2,7 @@ from tkinter import ttk
 from tkinter import *
 from PIL import Image, ImageTk
 import backend
-import sys, os #This is because we need to make sure of what os we are using this in as well as 
-#if we are in the correct directory
+import sys
 
 def create_periodic(t):
     global periodic_button, periodic_label
@@ -20,26 +19,12 @@ def render_table():
     class Periodic_Table:
         def __init__(self,master):
             if sys.platform == 'darwin':
-                try:
-                    os.chdir(f"{backend.STARTING_DIR}")
-                except:
-                    pass
-
                 self.image = Image.open(backend.resource_path("photos/Periodic.png"))
             elif sys.platform == 'linux':
-                try:
-                    os.chdir(f"{backend.STARTING_DIR}")
-                except:
-                    pass
-
                 self.image = Image.open(backend.resource_path("photos/Periodic.png"))
             elif sys.platform == "win32" or sys.platform == 'win64':
-                try:
-                    os.chdir(f"{backend.STARTING_DIR}")
-                except:
-                    pass
-
                 self.image = Image.open(backend.resource_path("photos\\Periodic.png"))
+
             self.image_copy = self.image.copy()
             self.background_image = ImageTk.PhotoImage(self.image)
             self.background = Label(master,image = self.background_image)
