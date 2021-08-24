@@ -68,10 +68,10 @@ def create_window():
 
 	global my_image, _diagram
 
-	pubchem.get_2d_photo(cid)
-
 	if os.getcwd().split("/")[len(os.getcwd().split('/'))-1] != backend.resource_path('photos'):
 	 	os.chdir(backend.resource_path('photos'))
+
+	pubchem.get_2d_photo(cid)
 
 	if f'{cid}.gif' not in os.listdir():
 	 	time.sleep(5)
