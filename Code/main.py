@@ -80,8 +80,6 @@ elif sys.platform == 'darwin':
     s.configure('Link.TLabel',foreground='blue')
     info_x = 700
     info_y = 720
-    if sys.platform == 'darwin':
-	    os.system(backend.resource_path('./Certificates.command')) #installs the certificate for pubchem for mac os only
     
 app_info.place(x=info_x,y=info_y)
 
