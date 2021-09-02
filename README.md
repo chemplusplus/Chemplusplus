@@ -60,7 +60,7 @@ Double click the executable `Chem++ Linux.exe`
 
 ### MacOS:
 
-Drag the `Chem++ OSX64.app` directory into your applications folder.
+Extract and drag the `Chem++ OSX64.app` directory into your applications folder.
 
 # IMPORTANT :warning:
 
