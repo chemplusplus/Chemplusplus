@@ -58,7 +58,7 @@ def create_window():
 
 		_Struct_Error.config(bg = '#373e40')
 
-		Error_Message = "We could not find the\n compound you were looking for,\n try spelling out the \nfull name"
+		Error_Message = "We could not find the\n compound you were looking for,\n try spelling out the \nfull name \nor check your internet connection"
 
 		_Error_Label = Label(master = _Struct_Error, text = Error_Message, bg = "#373e40", fg = "#ffffff",font = (backend.GLOBAL_FONT, 10))
 

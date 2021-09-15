@@ -53,7 +53,7 @@ info_x = -1 #ttk on mac os is different on windows and linux
 info_y = -1 #this is why we need different spacing to make everything look good
 
 if sys.platform == "win32" or sys.platform == 'win64':
-    root.iconbitmap(backend.resource_path("Assets/the_icon.ico")) #causes false windows defender detection if uncommented
+    root.iconbitmap(backend.resource_path("Assets/the_icon.ico")) 
     root.configure(bg = '#373e40')
     app_info = ttk.Label(root,text='Chem++ V1.0.0 Windows by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
@@ -126,5 +126,5 @@ def connect(host='http://google.com'):
 		return False
 # test
 if not connect():
-	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Some features will not work.')
+	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Search and Compound Diagrams will not work.')
 root.mainloop()

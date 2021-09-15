@@ -12,7 +12,7 @@ def install():
     ----------------------
     ----------------------
     """)
-    os.system("pip3 --disable-pip-version-check install tk bs4 urllib3 Pillow PILLOW sympy")
+    os.system("pip3 --disable-pip-version-check install tk bs4 urllib3 Pillow PILLOW sympy requests")
     if sys.platform == 'darwin':
 	    os.system(backend.resource_path('./Certificates.command')) #installs the certificate for pubchem for mac os only
 
