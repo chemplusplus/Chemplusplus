@@ -56,7 +56,7 @@ Double click the executable `Chem++ Windows.exe`
 
 ### Linux:
 
-Double click the executable `Chem++ Linux.exe`
+Right click the file, go to properties, permissions, and tick `Allow executing file as program`. Double click the executable `Chem++ Linux.exe`
 
 ### MacOS:
 
