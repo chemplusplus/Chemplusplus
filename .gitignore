@@ -228,3 +228,16 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,python
+Code/__pycache__/backend.cpython-38.pyc
+Code/__pycache__/balance.cpython-38.pyc
+Code/__pycache__/bohr.cpython-38.pyc
+Code/__pycache__/converter.cpython-38.pyc
+Code/__pycache__/info.cpython-38.pyc
+Code/__pycache__/limiting.cpython-38.pyc
+Code/__pycache__/notation.cpython-38.pyc
+Code/__pycache__/periodic.cpython-38.pyc
+Code/__pycache__/pubchem.cpython-38.pyc
+Code/__pycache__/search.cpython-38.pyc
+Code/__pycache__/setup.cpython-38.pyc
+Code/__pycache__/significant.cpython-38.pyc
+Code/__pycache__/structure.cpython-38.pyc

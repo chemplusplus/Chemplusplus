@@ -22,6 +22,10 @@ linux_width_small = 10 #adjust width for linux here
 linux_width_med = 15 
 linux_width_large = 39 
 
+version = "1.0.1"
+update_url = "https://api.github.com/repos/chemplusplus/Chemplusplus/releases/latest"
+#https://api.github.com/repos/{owner}/{target_repos}/releases/latest
+
 def return_size(t):
 	os = sys.platform
 	if(t == 'small'):

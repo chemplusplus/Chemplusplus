@@ -42,6 +42,7 @@ from tkinter import *
 import tkinter.messagebox
 import webbrowser
 import backend
+import requests
 
 def callback(url):
     webbrowser.open_new(url)
@@ -51,40 +52,45 @@ root = Tk()
 s = ttk.Style()
 info_x = -1 #ttk on mac os is different on windows and linux
 info_y = -1 #this is why we need different spacing to make everything look good
+os = sys.platform #get system platform
+os_num = -1
 
-if sys.platform == "win32" or sys.platform == 'win64':
+if os == "win32" or os == 'win64':
     root.iconbitmap(backend.resource_path("Assets/the_icon.ico")) 
     root.configure(bg = '#373e40')
-    app_info = ttk.Label(root,text='Chem++ V1.0.0 Windows by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Windows by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
     info_x = 780
     info_y = 720
-elif sys.platform == 'linux':
+    os_num = 2
+elif os == 'linux':
 	#normally linux should allow .xbm 
 	#files as the icon, but it didn't work
 	#on linux mint so just gonna use gif
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = '#373e40')
-    app_info = ttk.Label(root,text='Chem++ V1.0.0 Linux by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Linux by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
-    info_x = 710
+    info_x = 665
     info_y = 720
-elif sys.platform == 'darwin':
+    os_num = 0
+elif os == 'darwin':
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = 'white')
-    app_info = ttk.Label(root,text='Chem++ V1.0.0 Mac_OS by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Mac_OS by Markus Frig 2021. Visit our website for support:')
     s.configure('Link.TLabel',foreground='blue')
     info_x = 700
     info_y = 720
+    os_num = 1
     
 app_info.place(x=info_x,y=info_y)
 
 link1 = ttk.Label(root, text="HERE",cursor="hand2",style='Link.TLabel')
-link1.place(x=1150,y=750)
+link1.place(x=1150,y=info_y)
 link1.bind("<Button-1>", lambda e: callback("https://chemplusplus.github.io/"))
 
 root.geometry("1200x800")
@@ -113,18 +119,18 @@ notation.create_Notation(root)
 
 periodic.create_periodic(root)
 
-
-#this nexte piece of code is copied
-#we need to know whether or not its connected because it takes
-#away the features of the comopound structures and such
-import urllib.request
-def connect(host='http://google.com'):
-	try:
-		urllib.request.urlopen(host) #Python 3.x
-		return True
-	except:
-		return False
-# test
-if not connect():
+try:
+    response = requests.get(backend.update_url)
+    download_link = (response.json()["assets"][os_num]["browser_download_url"])
+    if(response.json()["tag_name"] != backend.version):
+        link_2 = ttk.Label(root,text='HERE',cursor="hand2",style='Link.TLabel')
+        link_2.bind("<Button-1>", lambda e: callback(download_link))
+        update_label = ttk.Label(root,text="Update available. Download the latest version:")
+        link_2.place(x=1150,y=info_y+30)
+        update_label.place(x=835,y=info_y+30)
+    else:
+        update_label = ttk.Label(root,text="You are on the latest version")
+        update_label.place(x=1000, y=info_y+30)
+except:
 	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Search and Compound Diagrams will not work.')
 root.mainloop()
