@@ -52,6 +52,7 @@ root = Tk()
 s = ttk.Style()
 info_x = -1 #ttk on mac os is different on windows and linux
 info_y = -1 #this is why we need different spacing to make everything look good
+download_x = -1
 os_num = -1
 authors = "Markus Frigaard and Wayne Zeng"
 os = sys.platform #get system platform
@@ -64,6 +65,7 @@ if os == "win32" or os == 'win64':
     s.configure('TLabel',background='#373e40',foreground='white')
     info_x = 655
     info_y = 720
+    download_x = 900
     os_num = 2
 elif os == 'linux':
 	#normally linux should allow .xbm 
@@ -77,6 +79,7 @@ elif os == 'linux':
     s.configure('TLabel',background='#373e40',foreground='white')
     info_x = 665
     info_y = 720
+    download_x = 835
     os_num = 0
 elif os == 'darwin':
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
@@ -86,6 +89,7 @@ elif os == 'darwin':
     s.configure('Link.TLabel',foreground='blue')
     info_x = 700
     info_y = 720
+    download_x = 1000
     os_num = 1
     
 app_info.place(x=info_x,y=info_y)
@@ -125,10 +129,10 @@ try:
     download_link = (response.json()["assets"][os_num]["browser_download_url"])
     if(response.json()["tag_name"] != backend.version):
         update_label = ttk.Label(root,text="Update available. Download the latest version:")
+        update_label.place(x=download_x,y=info_y+30)
         link_2 = ttk.Label(root,text='HERE',cursor="hand2",style='Link.TLabel')
         link_2.bind("<Button-1>", lambda e: callback(download_link))
-        link_2.place(x=1150,y=info_y+30)
-        update_label.place(x=835,y=info_y+30)
+        link_2.place(x=1150,y=info_y+30) 
     else:
         update_label = ttk.Label(root,text="You are on the latest version")
         update_label.place(x=1000, y=info_y+30)
