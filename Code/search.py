@@ -7,13 +7,7 @@ import os
 
 import backend
 
-try:
-	import requests
-except:
-	if sys.platform == 'linux' or sys.platform == 'darwin':
-		os.system('pip3 install requests')
-	elif sys.platform == 'win32' or sys.platform == 'win64':
-		os.system('pip install requests')
+import requests
 
 from bs4 import BeautifulSoup
 
@@ -35,7 +29,11 @@ def search(t):
 
 	to_search = f'https://chemistry.stackexchange.com/search?q={formatted_query}'
 
-	init_site = requests.get(to_search).text
+	try:
+		init_site = requests.get(to_search).text
+	except:
+		backend.no_internet()
+		return
 
 	soup = BeautifulSoup(init_site, 'html.parser')
 

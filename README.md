@@ -77,7 +77,12 @@ Our website was coded in HTML and can be found [here](https://chemplusplus.githu
 
 # For Developers :desktop_computer:
 
-Our executable files are compiled using [PyInstaller](https://www.pyinstaller.org/). The preconfigured spec files are located in the `..\Chemplusplus\Spec_Files` directory. When running `main.py` using python, uncomment line 27 in `main.py`. The function will install the required dependencies for you. When compiling to an executable, comment this line.
+Our executable files are compiled using [PyInstaller](https://www.pyinstaller.org/). When running `main.py` using python, uncomment line 27 in `main.py`. The function will install the required dependencies for you. When compiling to an executable, comment this line. Make sure to include the hidden import `PIL._tkinter_finder` when compiling for Linux.
+
+PyInstaller Compile Commands:  
+Windows: `pyinstaller main.py --onefile --noconsole --add-data "Assets;Assets" --add-data "photos;photos" --icon=Assets/the_icon.ico`  
+Linux: `pyinstaller main.py --onefile --noconsole --add-data "Assets:Assets" --add-data "photos:photos" --icon=Assets/the_icon.ico --hidden-import=PIL._tkinter_finder`  
+MacOS: `pyinstaller main.py --onefile --noconsole --add-data "Assets:Assets" --add-data "photos:photos" --icon=Assets/the_icon.ico`  
 
 # Documentation :green_book:
 

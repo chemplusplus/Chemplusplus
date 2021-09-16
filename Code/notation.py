@@ -13,17 +13,17 @@ def get_Notation():
 
 	try:
 		number = float(_Notation_Entry.get())
-		string_version = _Notation_Entry.get()
+		n = _Notation_Entry.get()
 
 	except:
 		backend.invalid()
 		return
 
 	if (number < 10 and number > 0) or number == 0:
-		backend.invalid()
 		return
 
 	exponent = 0
+	decimal_places = len(n)-1
 
 	if number > 10:
 
@@ -34,7 +34,7 @@ def get_Notation():
 			exponent += 1
 		_Notation_Entry.delete(0, 'end')
 
-		_Notation_Entry.insert(0, str(round(number, 2))+f" * 10 ^ {exponent}")
+		_Notation_Entry.insert(0, str(round(number,decimal_places))+f" * 10 ^ {exponent}")
 
 	elif number < 10:
 
@@ -46,11 +46,7 @@ def get_Notation():
 
 		_Notation_Entry.delete(0, 'end')
 
-		_Notation_Entry.insert(0, str(round(number, 2)) + f" * 10 ^ {exponent}")
-
-
-
-
+		_Notation_Entry.insert(0, str(round(number,decimal_places)) + f" * 10 ^ {exponent}")
 
 def create_Notation(t):
 

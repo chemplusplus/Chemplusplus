@@ -22,6 +22,10 @@ linux_width_small = 10 #adjust width for linux here
 linux_width_med = 15 
 linux_width_large = 39 
 
+version = "1.0.1"
+update_url = "https://api.github.com/repos/chemplusplus/Chemplusplus/releases/latest"
+#https://api.github.com/repos/{owner}/{target_repos}/releases/latest
+
 def return_size(t):
 	os = sys.platform
 	if(t == 'small'):
@@ -58,12 +62,12 @@ def add_space(s):
 				
 	return temp
 
-GLOBAL_FONT = 'Courier New'
-
 ELECTRON_CONFIG = dict()
 LEVELS = {'1':1, '2':8, '3':8, '4':16, '5':16, '6':16}
 S, P, D= 2, 6, 10
 LETTERS = {'s':2, 'p':6, 'd':10}
+
+GLOBAL_FONT = 'Courier New'
 
 #STARTING_DIR = os.getcwd()
 
@@ -197,3 +201,6 @@ def clear_values(pe, me, ge, e):
 
 def invalid():
 	tkinter.messagebox.showerror(title='Error',message='Invalid Entry')
+
+def no_internet():
+	tkinter.messagebox.showerror(title='Error',message='No Internet')
