@@ -94,7 +94,7 @@ def bohr():
 
 
 				bohr_canvas = Canvas(bohr_window, width = 600, height = 600, bg = '#373e40')
-				bohr_canvas.place(x = -2, y = -2)
+				bohr_canvas.place(x = -1, y = -1)
 
 				for e in backend.table:
 					if e == query:

@@ -77,7 +77,7 @@ elif os == 'linux':
     app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Linux by {authors}. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
-    info_x = 665
+    info_x = 555
     info_y = 720
     download_x = 835
     os_num = 0
