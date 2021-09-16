@@ -124,17 +124,13 @@ notation.create_Notation(root)
 
 periodic.create_periodic(root)
 
-try:
+try: #check for updates
     response = requests.get(backend.update_url)
-except:
-	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Search and Compound Diagrams will not work.')
-
-try:
-    download_link = (response.json()["assets"][os_num]["browser_download_url"])
     if(response.json()["tag_name"] != backend.version):
         update_label = ttk.Label(root,text="Update available. Download the latest version:")
         update_label.place(x=download_x,y=info_y+30)
         link_2 = ttk.Label(root,text='HERE',cursor="hand2",style='Link.TLabel')
+        download_link = (response.json()["assets"][os_num]["browser_download_url"])
         link_2.bind("<Button-1>", lambda e: callback(download_link))
         link_2.place(x=1150,y=info_y+30) 
     else:
@@ -143,4 +139,5 @@ try:
 except:
     update_label = ttk.Label(root,text="Error getting update")
     update_label.place(x=1000, y=info_y+30) 
+
 root.mainloop()
