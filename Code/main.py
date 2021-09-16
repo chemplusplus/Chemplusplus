@@ -87,9 +87,9 @@ elif os == 'darwin':
     root.configure(bg = 'white')
     app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Mac_OS by {authors}. Visit our website for support:')
     s.configure('Link.TLabel',foreground='blue')
-    info_x = 700
+    info_x = 550
     info_y = 720
-    download_x = 1000
+    download_x = 845
     os_num = 1
     
 app_info.place(x=info_x,y=info_y)

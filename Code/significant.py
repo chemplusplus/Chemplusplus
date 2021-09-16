@@ -1,6 +1,7 @@
 from tkinter import ttk
 from tkinter import *
 import backend
+import sys
 
 def clear_first(event):
 	global _Sig_Entry
@@ -124,7 +125,10 @@ def create_sig(t):
 
 	_Sig_Enter.place(x = 5, y = 25)
 
-	_sf_Enter.place(x=140,y=25)
+	if sys.platform == 'darwin':
+		_sf_Enter.place(x=155,y=25)
+	else:
+		_sf_Enter.place(x=140,y=25)
 
 	_Places_Entry = ttk.Entry(master = _Sig_Frame, width=backend.return_size('small'))
 
