@@ -52,16 +52,17 @@ root = Tk()
 s = ttk.Style()
 info_x = -1 #ttk on mac os is different on windows and linux
 info_y = -1 #this is why we need different spacing to make everything look good
-os = sys.platform #get system platform
 os_num = -1
+authors = "Markus Frigaard and Wayne Zeng"
+os = sys.platform #get system platform
 
 if os == "win32" or os == 'win64':
     root.iconbitmap(backend.resource_path("Assets/the_icon.ico")) 
     root.configure(bg = '#373e40')
-    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Windows by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Windows by {authors}. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
-    info_x = 780
+    info_x = 655
     info_y = 720
     os_num = 2
 elif os == 'linux':
@@ -71,7 +72,7 @@ elif os == 'linux':
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = '#373e40')
-    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Linux by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Linux by {authors}. Visit our website for support:')
     s.configure('Link.TLabel',background='#373e40',foreground='blue')
     s.configure('TLabel',background='#373e40',foreground='white')
     info_x = 665
@@ -81,7 +82,7 @@ elif os == 'darwin':
     logo = PhotoImage(file=backend.resource_path('Assets/icon.gif'))
     root.call('wm', 'iconphoto', root._w, logo)
     root.configure(bg = 'white')
-    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Mac_OS by Markus Frig 2021. Visit our website for support:')
+    app_info = ttk.Label(root,text=f'Chem++ V{backend.version} Mac_OS by {authors}. Visit our website for support:')
     s.configure('Link.TLabel',foreground='blue')
     info_x = 700
     info_y = 720
@@ -123,9 +124,9 @@ try:
     response = requests.get(backend.update_url)
     download_link = (response.json()["assets"][os_num]["browser_download_url"])
     if(response.json()["tag_name"] != backend.version):
+        update_label = ttk.Label(root,text="Update available. Download the latest version:")
         link_2 = ttk.Label(root,text='HERE',cursor="hand2",style='Link.TLabel')
         link_2.bind("<Button-1>", lambda e: callback(download_link))
-        update_label = ttk.Label(root,text="Update available. Download the latest version:")
         link_2.place(x=1150,y=info_y+30)
         update_label.place(x=835,y=info_y+30)
     else:
