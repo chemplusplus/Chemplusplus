@@ -126,6 +126,10 @@ periodic.create_periodic(root)
 
 try:
     response = requests.get(backend.update_url)
+except:
+	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Search and Compound Diagrams will not work.')
+
+try:
     download_link = (response.json()["assets"][os_num]["browser_download_url"])
     if(response.json()["tag_name"] != backend.version):
         update_label = ttk.Label(root,text="Update available. Download the latest version:")
@@ -137,5 +141,6 @@ try:
         update_label = ttk.Label(root,text="You are on the latest version")
         update_label.place(x=1000, y=info_y+30)
 except:
-	tkinter.messagebox.showwarning('Heads up','You are not connected to the internet. Search and Compound Diagrams will not work.')
+    update_label = ttk.Label(root,text="Error getting update")
+    update_label.place(x=1000, y=info_y+30) 
 root.mainloop()
