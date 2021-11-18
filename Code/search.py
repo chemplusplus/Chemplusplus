@@ -40,11 +40,8 @@ def search(t):
 	page_1_results = soup.find_all(class_="question-hyperlink")[:3]
 
 	for i in range(len(page_1_results)):
-		page_1_results[i] = str(page_1_results[i]).split("href=\"")[1]
-		page_1_results[i] = page_1_results[i].split("\"")[0]
-
-	for i in range(len(page_1_results)):
-		searches.append(f"https://chemistry.stackexchange.com{page_1_results[i]}")
+		temp = str(page_1_results[i]).split("href=\"")[1].split("\"")[0]
+		searches.append(f"https://chemistry.stackexchange.com{temp}")
 
 	for i in range(len(searches)):
 		site = requests.get(searches[i])
@@ -55,25 +52,18 @@ def search(t):
 
 		answered_time = soup2.find_all(class_='user-action-time')
 
-		authors = soup2.find_all(class_='user-details')
-
-		authors_filtered = []
+		authors_filtered = soup2.find_all('span', itemprop='name')
 
 		answered_time_filtered = []
 
 		for j in range(len(answered_time)):
 			if 'edited' not in answered_time[j].text:
 				answered_time_filtered.append(answered_time[j].text.lstrip())
-				temp = authors[j].text.split()
-				authors_filtered.append(temp[0])
-
-		for k in range(len(answered_time_filtered)):
-			answered_time_filtered[k] = answered_time_filtered[k].replace('a','A',1).replace('\'','20') + 'by ' + authors_filtered[k] 
-
+				
 		total = ''
 
 		for e in range(len(results)):
-			total += '\n' + answered_time_filtered[e] + authors_filtered[e] + '\n--------------------------------------------------'
+			total += '\n' + answered_time_filtered[e] + 'by ' + authors_filtered[e].text + '\n--------------------------------------------------'
 			total += results[e].text
 
 		total += f"\n\n\n\nSource:\t" + searches[i]
@@ -100,11 +90,6 @@ def search_gui(res):
 	results_title = Label(search_window, text = f'Results for : {_Search_Entry.get()}', font = (backend.GLOBAL_FONT, 24), bg = "#373e40", fg = "#ffffff")
 
 	results_title.pack()
-
-	#35 characters 
-
-
-
 
 	texts = []
 

@@ -24,7 +24,7 @@ Extra = 17c3b2
 
 '''
 import setup
-#setup.install() #comment when compiling to executable
+#setup.install() #comment when compiling to executable and uncomment when running for first time
 import sys
 import os
 import bohr
