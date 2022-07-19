@@ -1,9 +1,9 @@
 '''
 +-----------------------------------------------------------+
-|															|
-|	This is my chemistry aid for high school students   	|
-|	This was created by Markus Frigaard in 2021  		 	|
-|															|
+|							    |
+|	This is my chemistry aid for high school students   |
+|	This was created by Markus Frigaard in 2021  	    |
+|							    |
 +-----------------------------------------------------------+
 
 
